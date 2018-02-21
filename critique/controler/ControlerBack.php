@@ -63,5 +63,21 @@ class ControlerBack extends Controler
 			header('Location: /critique/');
 		}
 	}
+
+	public function deletePost(){
+		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
+            throw new NewException('Aucun identifiant de commentaire envoyé', 400);
+        }
+        $url = $this->_objectPost->getUrl($_GET['id']);
+        unlink('css/poster/' . $url['url_image']);
+
+        $delete = $this->_objectPost->delete($_GET['id']);
+        if (!$delete){
+			throw new NewException('La fiche n\'as pas été suprimé', 409);        	
+        }
+        else {
+        	header('Location: /critique/');
+        }		
+	}
 }
 

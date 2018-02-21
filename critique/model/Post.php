@@ -37,4 +37,16 @@ class Post extends Database{
 		return $url;
 	}
 
+	public function delete($postId){
+		$delete = $this->_db->prepare('DELETE FROM post WHERE id = ?');
+		$delete->execute(array($postId));
+		return $delete;
+	}
+
+	public function getUrl($postId){
+		$url= $this->_db->prepare('SELECT url_image FROM post WHERE id = ?');
+        $url->execute(array($postId));
+		return $url->fetch();
+	}
+
 }

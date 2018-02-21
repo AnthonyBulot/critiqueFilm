@@ -8,10 +8,10 @@ while($data = $posts->fetch()){
 		<p>La note a ajouté</p>
 		<p><?= htmlspecialchars($data['actor']) ?></p><br/>
 		<p><?= htmlspecialchars($data['description']) ?></p><br/>
-		<a href="/critique/film/<?= $data['id'] ?>"></a>
+		<a href="/critique/film/<?= $data['id'] ?>">Commentaire</a>
 		<?php if (isset($_SESSION['admin'])) { ?>
-			<a href="/critique/film/<?= $data['id'] ?>/modification"></a>
-			<a href="/critique/film/<?= $data['id'] ?>/suprimer"></a>
+			<a href="/critique/film/<?= $data['id'] ?>/modification">Modification</a>
+			<a href="/critique/film/<?= $data['id'] ?>/suprimer">Suprimer</a>
 		<?php } ?>
 	</div>
 <?php

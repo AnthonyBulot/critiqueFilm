@@ -12,6 +12,7 @@ $routeur = [
 	"#^/critique/film/connexion$#" => "ControlerFront@connect",
 	"#^/critique/film/administration$#" => "ControlerBack@admin",
 	"#^/critique/film/ajout-film$#" => "ControlerBack@addPost",
-	"#^/critique/film/ajout-fiche-film$#" => "ControlerBack@savePost"
+	"#^/critique/film/ajout-fiche-film$#" => "ControlerBack@savePost",
+	"#^/critique/film/([0-9]+)/suprimer$#" => "ControlerBack@deletePost"
 
 ];
