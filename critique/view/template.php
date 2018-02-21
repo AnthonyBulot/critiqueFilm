@@ -17,7 +17,7 @@
                 </div>
                 <a href="/critique/film/contact">Contact</a>                
                 <?php if (isset($_SESSION['password'])): ?>                
-                <a href="/critique/film/administration" class="lienMenu">Utilisateur</a>
+                <a href="/critique/film/utilisateur" class="lienMenu">Utilisateur</a>
                 <a href="/critique/film/deconnect" class="lienMenu">Déconnexion</a>
                 <?php else: ?>              
                 <a href="/critique/film/formulaire-connexion" class="lienMenu">Indentifiez-vous</a>
@@ -36,7 +36,14 @@
             <?= $content ?>
         </section> 
         <footer>
-        	<a href="/critique/film/formulaire-admin">Administration</a>
+            <?php if (isset($_SESSION['admin'])): ?>                
+                <a href="/critique/film/administration" class="lienMenu">Page Administration</a>
+                <a href="/critique/film/deconnect" class="lienMenu">Déconnexion</a>
+                <?php else: ?>              
+                <a href="/critique/film/formulaire-admin">Administration</a>
+                <?php                                   
+                endif;
+            ?>
             <p>Ce site a été fait dans le cadre de la formation Développeur Web Junior de OpenClassrooms</p>
         </footer>
 
