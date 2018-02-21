@@ -55,7 +55,6 @@ class ControlerBack extends Controler
 			"date_exit" => $_POST['date_exit'],
 			"url" => basename($_FILES['poster']['name']),
 		];
-		var_dump($data);
 		$newPost = $this->_objectPost->add($data);
 		if (!$newPost) {
 			throw new NewException('La fiche du film n\'a pas pus être enregistré !', 409);

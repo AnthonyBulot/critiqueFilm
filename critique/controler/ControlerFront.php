@@ -3,9 +3,45 @@
 class ControlerFront extends Controler
 {
 	protected $_objectUser;
+	protected $_objectPost;
 
 	public function __construct(){
 		$this->_objectUser = new User();
+		$this->_objectPost = new Post();
+	}
+
+	public function lastExit(){
+		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
+            throw new NewException('Aucun identifiant de commentaire envoyé', 400);
+        }
+
+		$totalPosts = $this->_objectPost->numberPost();
+
+		$numberPages=ceil($totalPosts/10);
+
+		if(isset($_GET['id'])) {
+			$currentPage=intval($_GET['id']);
+ 
+     		if($currentPage>$numberPages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
+     		{
+         		$currentPage=$numberPages;
+     		}
+		}
+		else // Sinon
+		{
+     		$currentPage = 1; // La page actuelle est la n°1    
+		}
+
+		$firstEntry=($currentPage - 1) * 10; // On calcul la première entrée à lire
+
+		$posts = $this->_objectPost->listPosts($firstEntry);
+
+		$data = [
+    		'posts' => $posts,
+    		'numberPages' => $numberPages,
+    		'currentPage' => $currentPage
+    	];
+		$this->render('homeView', $data);
 	}
 
 	public function formAdmin(){

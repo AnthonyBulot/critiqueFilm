@@ -10,7 +10,7 @@
         <header>
             <div id="menu">
                 <a href="/critique/film/accueil" class="lienMenu">Accueil</a>
-                <a href="/critique/populaire" class="lienMenu">Populaire</a>
+                <a href="/critique/film/dernier-film" class="lienMenu">Dernières Sortie</a>
                 <p>Catégorie</p>
                 <div>
                 	
