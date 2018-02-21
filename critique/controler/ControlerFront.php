@@ -10,6 +10,15 @@ class ControlerFront extends Controler
 		$this->_objectPost = new Post();
 	}
 
+	public function home(){
+		$url = $this->_objectPost->diaporamaPost();
+
+		$data = [
+    		'url' => $url
+    	];
+		$this->render('homeView', $data);
+	}
+
 	public function lastExit(){
 		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
             throw new NewException('Aucun identifiant de commentaire envoyé', 400);
@@ -41,7 +50,7 @@ class ControlerFront extends Controler
     		'numberPages' => $numberPages,
     		'currentPage' => $currentPage
     	];
-		$this->render('homeView', $data);
+		$this->render('lastMovieView', $data);
 	}
 
 	public function formAdmin(){

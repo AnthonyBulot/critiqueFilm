@@ -1,6 +1,8 @@
 <?php
 
 $routeur = [
+	"#^/critique/$#" => "ControlerFront@home",
+	"#^/critique/film/accueil$#" => "ControlerFront@home",
 	"#^/critique/film/dernier-film#" => "ControlerFront@lastExit",
 	"#^/critique/film/formulaire-admin$#" => "ControlerFront@formAdmin",
 	"#^/critique/film/connexion-admin$#" => "ControlerFront@connectAdmin",

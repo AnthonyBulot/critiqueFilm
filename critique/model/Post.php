@@ -31,4 +31,10 @@ class Post extends Database{
 		return $posts;
 	}
 
+	public function diaporamaPost(){
+		$url= $this->_db->prepare('SELECT url_image FROM post ORDER BY exit_date DESC LIMIT 0, 4');
+        $url->execute();
+		return $url;
+	}
+
 }

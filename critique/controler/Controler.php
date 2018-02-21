@@ -4,7 +4,6 @@ class Controler
 {	
 	public function render($view, $dataView = [])
 	{
-
 		extract($dataView);
 
 		ob_start();
