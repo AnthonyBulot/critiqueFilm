@@ -7,6 +7,12 @@ class Comment extends Database{
 		return $comments;
 	}
 
+	public function getComment($id){
+		$comment = $this->_db->prepare('SELECT id, content, note, post_id FROM comment WHERE id = ?');
+        $comment->execute(array($id));
+		return $comment->fetch();
+	}
+
 	public function addComment($data){
 		$comment = $this->_db->prepare('INSERT INTO comment(author, content, note, post_id, date_comment, report) 
 			VALUES(?, ?, ?, ?, NOW(), 0)');
@@ -18,5 +24,11 @@ class Comment extends Database{
 		$note = $this->_db->prepare('SELECT AVG(note) FROM comment WHERE post_id = ?');
 		$note->execute(array($postId));
 		return $note->fetch();
+	}
+
+	public function update($data){
+		$req = $this->_db->prepare('UPDATE comment SET note = ?, content = ? WHERE id = ?');
+		$req->execute(array($data['note'], $data['content'], $data['id']));
+		return $req;
 	}
 }

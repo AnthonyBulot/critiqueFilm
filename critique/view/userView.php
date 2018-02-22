@@ -1,3 +1,3 @@
 <?php $template = 'template'; ?>
 
-<p>Bonjour <?= $_SESSION['password'] ?></p>
+<p>Bonjour <?= $_SESSION['name'] ?></p>

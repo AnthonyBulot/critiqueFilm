@@ -70,13 +70,19 @@ class ControlerFront extends Controler
 
         $averageNote = $this->_objectComment->getNote($_GET['id']);
         $comments = $this->_objectComment->getComments($_GET['id']);
-
         $note = ceil($averageNote['AVG(note)']);
 
+        while ($comment = $comments->fetch()){
+        	$key = $comment['author'];
+        	$author[$key] = 'true';
+        }
+
+        $comments = $this->_objectComment->getComments($_GET['id']);
         $data = [
         	'post' => $post,
         	'comments' => $comments,
         	'note' => $note,
+        	'author' => $author,
         ];	
         $this->render('postView', $data);	
 	}
@@ -93,7 +99,8 @@ class ControlerFront extends Controler
 		$controler = new Administration();
 		$dbPassword = $controler->connect($_POST['user']);
 		if (password_verify($_POST['password'], $dbPassword['password'])) {
-			$_SESSION['admin'] = $_POST['user'];
+			$_SESSION['admin'] = true;
+			$_SESSION['name'] = $_POST['user'];
     		header('Location: /critique/film/administration');
 		}
 		else{
@@ -143,7 +150,7 @@ class ControlerFront extends Controler
 		$dbPassword = $this->_objectUser->connect($_POST['user']);
 
 		if (password_verify($_POST['password'], $dbPassword['password'])) {
-			$_SESSION['password'] = $_POST['user'];
+			$_SESSION['name'] = $_POST['user'];
     		header('Location: /critique/film/utilisateur');
 		}
 		else{
@@ -276,5 +283,39 @@ class ControlerFront extends Controler
 
 	public function userPage(){
 		$this->render('userView');
+	}
+
+	public function formUpdateComment(){
+		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
+            throw new NewException('Aucun identifiant de commentaire envoyé', 400);
+        }
+
+        $comment = $this->_objectComment->getComment($_GET['id']);
+        $data = [
+        	'comment' => $comment,
+        ];
+        $this->render('updateCommentView', $data);
+	}
+
+	public function updateComment(){
+		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
+            throw new NewException('Aucun identifiant de commentaire envoyé', 400);
+        }
+        if(empty($_POST['content']) || empty($_POST['note'])){
+        	throw new NewException('Tous les champs ne sont pas renseigné', 400);
+        }	
+
+        $data = [
+        	'id' => $_GET['id'],
+        	'content' => $_POST['content'],
+        	'note' => $_POST['note'],
+        ];
+        $comment = $this->_objectComment->update($data);
+        if (!$comment){
+			throw new NewException('La modification a échoué', 409);        	        	
+        }
+        else {
+        	header('Location: /critique/film/' . $_GET['postId']);
+        }	
 	}
 }

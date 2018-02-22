@@ -24,28 +24,39 @@ if (isset($report) && $report == true){
 }
 while ($comment = $comments->fetch())
 {
+
 ?>
 <div>            
     <p ><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_fr'] ?></p>
-    <p>Note : <?= $comment['note'] ?>/100</p>
+    <p><?= $comment['note'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
     <p><a href="/critique/film/<?= $post['id'] ?>/commentaire-<?= $comment['id'] ?>">Signaler</a></p>
+    <?php if (isset($_SESSION['name']) && $comment['author'] == $_SESSION['name']){ ?>
+    <p><a href="/critique/film/modification/commentaire-<?= $comment['id'] ?>">Modifier</a></p>
+    <?php }
+    ?>
 </div>
 
 <?php } 
-if (isset($_SESSION['password']) || isset($_SESSION['admin'])){
-    if(isset($_SESSION['password'])): $name = $_SESSION['password'];
-    else : $name = $_SESSION['admin'];
-    endif;
+if (isset($_SESSION['name'])){
+    if(!array_key_exists($_SESSION['name'], $author)){
 ?>
-<form method="post" action="/critique/film/<?= $post['id'] ?>/ajout-commentaire">
-    <p >Ajouté un commentaire</p>
-    <input type="hidden" name="author" value="<?= $name ?>" />
-    <label for="note">Note de 0 à 100</label><input type="text" name="note">
-    <label for="comment">Commentaire</label><textarea rows="10" name="content" id="comment"></textarea>
-    <input type="submit" name="submit" value="Envoyer"/>
-</form>
-<?php } else { ?>
+        <form method="post" action="/critique/film/<?= $post['id'] ?>/ajout-commentaire">
+            <p >Ajouté un commentaire</p>
+            <input type="hidden" name="author" value="<?= $_SESSION['name'] ?>" />
+            <label for="note">Note</label>
+            <input type="radio" name="note" value="20">
+            <input type="radio" name="note" value="40">
+            <input type="radio" name="note" value="60">
+            <input type="radio" name="note" value="80">
+            <input type="radio" name="note" value="100">
+            <label for="comment">Commentaire</label><textarea rows="10" name="content" id="comment"></textarea>
+            <input type="submit" name="submit" value="Envoyer"/>
+        </form>
+    <?php } else { ?>
+            <p>Vous avez déjà commenté</p>
+    <?php }
+} else { ?>
     <p>Vous devez être connecté pour mettre des commentaire !</p>
 <?php
 }
