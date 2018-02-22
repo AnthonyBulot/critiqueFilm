@@ -13,7 +13,18 @@
                 <a href="/critique/film/dernier-film" class="lienMenu">Dernières Sortie</a>
                 <p>Catégorie</p>
                 <div>
-                	
+                    <a href="/critique/film/category/Action">Action</a>
+                    <a href="/critique/film/category/Aventure">Aventure</a>
+                    <a href="/critique/film/category/Comedie">Comedie</a>
+                    <a href="/critique/film/category/Drame">Drame</a>
+                    <a href="/critique/film/category/Famille">Famille</a>
+                    <a href="/critique/film/category/Fantastique">Fantastique</a>
+                    <a href="/critique/film/category/Hero">Hero</a>
+                    <a href="/critique/film/category/Histoire">Histoire</a>
+                    <a href="/critique/film/category/Horreur">Horreur</a>
+                    <a href="/critique/film/category/Policier">Policier</a>
+                    <a href="/critique/film/category/Science-Fiction">Science-Fiction</a>
+                    <a href="/critique/film/category/Romantique">Romantique</a>
                 </div>
                 <a href="/critique/film/contact">Contact</a>                
                 <?php if (isset($_SESSION['password'])): ?>                

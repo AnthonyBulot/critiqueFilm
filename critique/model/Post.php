@@ -24,8 +24,17 @@ class Post extends Database{
 		return $total;
 	}
 
+	public function numberPostCategory($category)
+	{
+		$data_total= $this->_db->prepare('SELECT COUNT(*) AS total FROM post WHERE category = ?');
+		$data_total->execute(array($category));
+		$data = $data_total->fetch();
+		$total = $data['total'];
+		return $total;
+	}
+
 	public function listPosts($first){
-		$posts= $this->_db->prepare('SELECT id, title, description, actor, category, url_image, DATE_FORMAT(exit_date, \'%d/%m/%Y à %H:%i:%s\') AS date_fr FROM post ORDER BY exit_date DESC LIMIT :first, 10');
+		$posts= $this->_db->prepare('SELECT id, title, description, actor, category, url_image, DATE_FORMAT(exit_date, \'%d/%m/%Y\') AS date_fr FROM post ORDER BY exit_date DESC LIMIT :first, 10');
 		$posts->bindParam(':first', $first, PDO::PARAM_INT);
         $posts->execute();
 		return $posts;
@@ -47,6 +56,27 @@ class Post extends Database{
 		$url= $this->_db->prepare('SELECT url_image FROM post WHERE id = ?');
         $url->execute(array($postId));
 		return $url->fetch();
+	}
+
+	public function getPost($postId){
+		$post = $this->_db->prepare('SELECT id, title, description, actor, category, url_image, 
+			DATE_FORMAT(exit_date, \'%d/%m/%Y\') AS date_fr FROM post WHERE id = ?');
+        $post->execute(array($postId));
+		return $post->fetch();		
+	}
+
+	public function updatePost($data){
+		$add = $this->_db->prepare('UPDATE post SET title = ?, description = ?, actor = ?, category = ?, exit_date = ?  WHERE id = ?');
+    	$add->execute(array($data['title'], $data['description'], $data['actor'],  $data['category'], $data['exit_date'], $data['id']));
+    	return $add;		
+	}
+
+	public function category($data){
+		$posts= $this->_db->prepare('SELECT id, title, description, actor, category, url_image, DATE_FORMAT(exit_date, \'%d/%m/%Y\') AS date_fr FROM post WHERE category = :category ORDER BY exit_date DESC LIMIT :first, 10');
+		$posts->bindParam(':first', $data['first'], PDO::PARAM_INT);
+		$posts->bindParam(':category', $data['category'], PDO::PARAM_STR);
+        $posts->execute();
+		return $posts;
 	}
 
 }
