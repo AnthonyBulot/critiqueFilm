@@ -17,4 +17,22 @@ class Contact extends Database {
 		$req->execute();
 		return $req;
 	}
+
+	public function getOneContact($id){
+		$req = $this->_db->prepare('SELECT id, name_user, content, email, read_message, DATE_FORMAT(date_message, \'%d/%m/%Y à %H:%i:%s\') AS date_fr FROM contact WHERE id = ?');
+		$req->execute(array($id));
+		return $req->fetch();
+	}
+
+	public function read($id){
+		$add = $this->_db->prepare('UPDATE contact SET read_message = 1  WHERE id = ?');
+    	$add->execute(array($id));
+    	return $add;	
+	}
+
+	public function deleteContact($id){
+		$delete = $this->_db->prepare('DELETE FROM contact WHERE id = ?');
+		$delete->execute(array($id));
+		return $delete;
+	}
 }

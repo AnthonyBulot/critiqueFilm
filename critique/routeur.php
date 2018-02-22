@@ -23,6 +23,8 @@ $routeur = [
 	"#^/critique/film/contact$#" => "ControlerFront@formContact",
 	"#^/critique/film/message-contact$#" => "ControlerFront@contact",
 	"#^/critique/film/utilisateur$#" => "ControlerFront@userPage",
-	"#^/critique/film/admin-contact$#" => "ControlerBack@getContact"
+	"#^/critique/film/admin-contact$#" => "ControlerBack@getContact",
+	"#^/critique/film/contact/([a-zA-Z0-9]+)$#" => "ControlerBack@getOneContact",
+	"#^/critique/film/contact/delete/([0-9]+)$#" => "ControlerBack@deleteContact"
 
 ];
