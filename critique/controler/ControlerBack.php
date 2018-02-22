@@ -3,6 +3,7 @@
 class ControlerBack extends Controler
 {    
 	protected $_objectPost;
+	protected $_objectContact;
 
 	public function __construct()
 	{
@@ -11,6 +12,7 @@ class ControlerBack extends Controler
 			throw new NewException('Vous n\'avez pas accès à cette page', 401);
 		}
 		$this->_objectPost = new Post();
+		$this->_objectContact = new Contact();
 	}
 
 	public function admin(){
@@ -134,6 +136,15 @@ class ControlerBack extends Controler
         else {
         	header('Location: /critique/film/' . $_GET['id']);
         }
+	}
+
+	public function getContact(){
+		$contact = $this->_objectContact->getContact();
+
+		$data = [
+			'contact' => $contact,
+		];
+		$this->render('contactView', $data);
 	}
 }
 

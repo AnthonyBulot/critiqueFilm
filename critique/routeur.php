@@ -18,6 +18,11 @@ $routeur = [
 	"#^/critique/film/([0-9]+)/ajout-commentaire$#" => "ControlerFront@addComment",
 	"#^/critique/film/([0-9]+)/modification$#" => "ControlerBack@formUpdatePost",
 	"#^/critique/film/([0-9]+)/modification-fiche-film$#" => "ControlerBack@updatePost",
-	"#^/critique/film/category/([a-zA-Z0-9\-]+)#" => "ControlerFront@postCategory"
+	"#^/critique/film/category/([a-zA-Z0-9\-]+)#" => "ControlerFront@postCategory",
+	"#^/critique/film/recherche-film$#" => "ControlerFront@search",
+	"#^/critique/film/contact$#" => "ControlerFront@formContact",
+	"#^/critique/film/message-contact$#" => "ControlerFront@contact",
+	"#^/critique/film/utilisateur$#" => "ControlerFront@userPage",
+	"#^/critique/film/admin-contact$#" => "ControlerBack@getContact"
 
 ];

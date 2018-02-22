@@ -79,4 +79,12 @@ class Post extends Database{
 		return $posts;
 	}
 
+	public function search($search) {
+		$req = $this->_db->prepare('SELECT id, title, description, actor, category, url_image, DATE_FORMAT(exit_date, \'%d/%m/%Y\') AS date_fr FROM post WHERE title LIKE :title OR actor LIKE :actor ORDER BY exit_date DESC');
+		$req->execute(array(
+			'title' => $search,
+			'actor' => $search,
+		));
+		return $req;
+	}
 }

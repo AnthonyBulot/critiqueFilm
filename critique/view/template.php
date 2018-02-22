@@ -38,7 +38,7 @@
             </div>
             <div class="search">
                 <form method="post" action="/critique/film/recherche-film">
-                    <input class="searchText" type="search" name="search">
+                    <input class="searchText" type="search" name="search" placeholder="Nom du film ou de l'acteur" >
                     <input class="searchSubmit" type="submit" name="submit" value="Recherchez"> 
                 </form>
             </div>

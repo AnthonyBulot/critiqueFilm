@@ -5,11 +5,13 @@ class ControlerFront extends Controler
 	protected $_objectUser;
 	protected $_objectPost;
 	protected $_objectComment;
+	protected $_objectContact;
 
 	public function __construct(){
 		$this->_objectUser = new User();
 		$this->_objectPost = new Post();
 		$this->_objectComment = new Comment();
+		$this->_objectContact = new Contact();
 	}
 
 	public function home(){
@@ -61,6 +63,11 @@ class ControlerFront extends Controler
         }
 
         $post = $this->_objectPost->getPost($_GET['id']);
+
+        if (!$post): throw new NewException("Ce post n'existe pas !", 404); 
+    	else : $post = $this->_objectPost->getPost($_GET['id']);
+    	endif;
+
         $averageNote = $this->_objectComment->getNote($_GET['id']);
         $comments = $this->_objectComment->getComments($_GET['id']);
 
@@ -216,6 +223,58 @@ class ControlerFront extends Controler
     		];
     		$this->render('errorCategoryView', $data);
 		}
+	}
 
+	public function search(){
+		if (empty($_POST['search'])) {
+            throw new NewException('Aucun champs renseigné', 400);
+        }
+
+        $search = '%' . $_POST['search'] . '%';
+
+        $data = $this->_objectPost->search($search);  
+
+        if (!($data->fetch()))
+        {
+            $data = [
+                'search' => $_POST['search'],
+            ];
+            $this->render('falseSearchView', $data);
+        }
+        else
+        {
+            $data = $this->_objectPost->search($search);
+            $dataDb = [
+                'search' => $data,
+            ];
+            $this->render('searchView', $dataDb);
+        }
+	}
+
+	public function formContact(){
+		$this->render('formContactView');
+	}
+
+	public function contact(){
+		if (empty($_POST['name']) && empty($_POST['email']) && empty($_POST['content'])) {
+            throw new NewException('Tous les champs n\'ont pas été renseigné', 400);
+        }		
+
+        $data = [
+        	'name' => $_POST['name'],
+        	'email' => $_POST['email'],
+        	'content' => $_POST['content'],
+        ];
+        $contact = $this->_objectContact->addContact($data);
+        if (!$contact){
+        	throw new NewException("Envoi du message non effectuer", 409);
+        }
+        else {
+        	header('Location: /critique/');
+        }
+	}
+
+	public function userPage(){
+		$this->render('userView');
 	}
 }
