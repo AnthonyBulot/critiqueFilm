@@ -1,4 +1,3 @@
-<?php ?>
 <?php $template = 'template'; ?>
 
-<p class="intro">Désolé aucun résultat trouvé pour '<?= $search ?>'</p>
+<div class="row"><p class="col-lg-12 center">Désolé aucun résultat trouvé pour '<?= $search ?>'</p></div>

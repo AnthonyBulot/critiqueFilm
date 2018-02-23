@@ -20,7 +20,12 @@ class ControlerBack extends Controler
 	}
 
 	public function admin(){
-		$this->render("adminView");
+		$message = $this->_objectContact->getMessage();
+
+		$data =  [
+			'message' => $message,
+		];
+		$this->render("adminView", $data);
 	}
 
 	public function addPost(){

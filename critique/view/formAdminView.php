@@ -1,13 +1,14 @@
 <?php $template = 'template'; ?>
-
-<form method="post" action="/critique/film/connexion-admin" class="">
-	<div>
-		<label>Nom d'utilisateur</label>
-		<input type="text" name="user">
-	</div>
-    <div>
-        <label>Mot De Passe</label>
-        <input type="password" name=password />
-    </div>
-    <input id="" type="submit" name="submit" value="Connexion"/>
-</form>
+<div class="row">
+	<form method="post" action="/critique/film/connexion-admin" class="col-lg-5">
+		<div class="form-group">
+			<label for="user">Nom d'utilisateur</label>
+			<input type="text" name="user" class="form-control" />
+		</div>
+    	<div class="form-group">
+     	    <label for="password">Mot De Passe</label>
+        	<input type="password" name=password class="form-control"/>
+    	</div>
+    	<input class="btn btn-default" type="submit" name="submit" value="Connexion"/>
+	</form>
+</div>

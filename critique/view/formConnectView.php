@@ -1,35 +1,38 @@
 <?php $template = 'template'; ?>
-<div>
-	<p>Connexion</p>
-	<form method="post" action="/critique/film/connexion" class="">
-		<div>
-			<label>Nom d'utilisateur</label>
-			<input type="text" name="user">
-		</div>
-    	<div>
-        	<label>Mot De Passe</label>
-        	<input type="password" name=password />
-    	</div>
-    	<input id="" type="submit" name="submit" value="Connexion"/>
-	</form>
-</div>
-<div>
-	<p>Inscription</p>
-	<form method="post" action="/critique/film/inscription" class="">
-		<div>
-			<label>Nom d'utilisateur</label>
-			<input type="text" name="user">
-		</div>
-		<?php
-			if(isset($_GET['exist'])){ ?>
-				<p>Ce nom d'utilisateur existe déjà</p>
-		<?php	
-			}
-		?>
-    	<div>
-        	<label>Mot De Passe</label>
-        	<input type="password" name=password />
-    	</div>
-    	<input id="" type="submit" name="submit" value="Inscription"/>
-	</form>
+
+<div class="row">
+	<div class="col-lg-6">
+		<h2>Connexion</h2>
+		<form method="post" action="/critique/film/connexion" class="">
+			<div class="form-group">
+				<label for="user">Nom d'utilisateur</label>
+				<input type="text" name="user" class="form-control" />
+			</div>
+    		<div class="form-group">
+        		<label for="password">Mot De Passe</label>
+        		<input type="password" name=password class="form-control" />
+    		</div>
+	    	<input type="submit" name="submit" value="Connexion" class="btn btn-default"/>
+		</form>
+	</div>
+	<div class="col-lg-6">
+		<h2>Inscription</h2>
+		<form method="post" action="/critique/film/inscription" class="">
+			<div class="form-group">
+				<label for="user">Nom d'utilisateur</label>
+				<input type="text" name="user" class="form-control" />
+			</div>
+			<?php
+				if(isset($_GET['exist'])){ ?>
+					<p>Ce nom d'utilisateur existe déjà</p>
+			<?php	
+				}
+			?>
+    		<div class="form-group">
+        		<label for="password">Mot De Passe</label>
+        		<input type="password" name=password class="form-control"/>
+    		</div>
+    		<input type="submit" name="submit" value="Inscription" class="btn btn-default"/>
+		</form>
+	</div>
 </div>

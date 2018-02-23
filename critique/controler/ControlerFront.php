@@ -138,7 +138,8 @@ class ControlerFront extends Controler
 				throw new NewException('Inscription non effectué', 409);
 			}
 			else {
-				$_SESSION['password'] = $_POST['user'];
+				$_SESSION['name'] = $_POST['user'];
+				$_SESSION['user'] = true;
 				header('Location: /critique/film/utilisateur');
 			}
 		}
@@ -153,6 +154,7 @@ class ControlerFront extends Controler
 
 		if (password_verify($_POST['password'], $dbPassword['password'])) {
 			$_SESSION['name'] = $_POST['user'];
+			$_SESSION['user'] = true;
     		header('Location: /critique/film/utilisateur');
 		}
 		else{

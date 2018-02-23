@@ -2,17 +2,21 @@
 
 while($data = $search->fetch()){
 ?>
-	<div><img src="css/poster/<?= $data['url_image'] ?>" alt="Affiche de <?= $data['title'] ?>"/></div>
-	<div>
-		<p><?= htmlspecialchars($data['title']) ?></p>
-		<p>Sorti le : <?= $data['date_fr'] ?></p>
-		<p><?= htmlspecialchars($data['actor']) ?></p>
-		<p><?= htmlspecialchars($data['description']) ?></p>
-		<a href="/critique/film/<?= $data['id'] ?>">Commentaire</a>
-		<?php if (isset($_SESSION['admin'])) { ?>
-			<a href="/critique/film/<?= $data['id'] ?>/modification">Modification</a>
-			<a href="/critique/film/<?= $data['id'] ?>/suprimer">Suprimer</a>
-		<?php } ?>
+	<div class="row">
+		<div class="col-lg-4"><img src="css/poster/<?= $data['url_image'] ?>" alt="Affiche de <?= $data['title'] ?>"/></div>
+		<div class="col-lg-8">
+			<p><?= htmlspecialchars($data['title']) ?></p>
+			<p>Sorti le : <?= $data['date_fr'] ?></p>
+			<p><?= htmlspecialchars($data['actor']) ?></p>
+			<p><?= htmlspecialchars($data['description']) ?></p>
+			<div class="row">
+				<p class="col-lg-2"><a href="/critique/film/<?= $data['id'] ?>">Commentaire</a></p>
+				<?php if (isset($_SESSION['admin'])) { ?>
+					<p class="col-lg-2"><a href="/critique/film/<?= $data['id'] ?>/modification">Modification</a></p>
+					<p class="col-lg-2"><a href="/critique/film/<?= $data['id'] ?>/suprimer">Suprimer</a></p>
+				<?php } ?>
+			</div>
+		</div>
 	</div>
 <?php
 }

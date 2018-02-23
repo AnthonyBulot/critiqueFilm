@@ -1,4 +1,4 @@
 
-<p class="intro"><?= $e ?></p>
+<div class="row"><p class="col-lg-12 center"><?= $e ?></p>
     
 

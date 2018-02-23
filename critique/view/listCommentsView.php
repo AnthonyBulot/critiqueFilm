@@ -1,7 +1,7 @@
 <?php $template = 'template'; ?>
 
-<p>Voici les commentaires les plus signalés :</p>
-<p><a href="/critique/film/commentaire-signale">Rafraichir la page</a></p>
+<div class="row"><h2 class="col-lg-12">Voici les commentaires les plus signalés :</h2></div>
+<div class="row"><p class="col-lg-12"><a href="/critique/film/commentaire-signale">Rafraichir la page</a></p></div>
 
 <?php
 if (isset($_GET['delete']) && $_GET['delete'] == 1){ ?>
@@ -15,18 +15,22 @@ elseif (isset($_GET['delete']) && $_GET['delete'] == 2){ ?>
 while ($comment = $comments->fetch())
 {
 ?>
-	<div>
-    	<p><strong class="author"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_datefr'] ?></p>
-        <p>Note: <?= $comment['note'] ?></p>
-    	<p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
-    	<p>A été signaler <em class="report"><?= $comment['report'] ?></em> fois</p>
-    	<a href="/critique/film/suprimer/commentaire/<?= $comment['id'] ?>">Supprimer le commentaire</a>
-    	<a href="/critique/film/suprimer/signalement/<?= $comment['id'] ?>">Enlever les signalements</a>
+	<div class="row">
+    	<div class="row"><p class="col-lg-12"><strong class="author"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_datefr'] ?></p></div>
+        <div class="row"><p class="col-lg-12">Note: <?= $comment['note'] ?></p></div>
+    	<div class="row"><p class="col-lg-12"><?= nl2br(htmlspecialchars($comment['content'])) ?></p></div>
+    	<div class="row"><p class="col-lg-12">A été signaler <em class="report"><?= $comment['report'] ?></em> fois</p></div>
+        <div class="row">
+    	   <p class="col-lg-2"><a href="/critique/film/suprimer/commentaire/<?= $comment['id'] ?>">Supprimer le commentaire</a></p>
+    	   <p class="col-lg-2"><a href="/critique/film/suprimer/signalement/<?= $comment['id'] ?>">Enlever les signalements</a></p>
+        </div>
     </div>
-<?php
-}
+<?php } ?>
 
-echo '<p>Page : '; //Pour l'affichage, on centre la liste des pages
+
+<div class="row">
+<p class="">Page : 
+<?php 
 for($i=1; $i<=$numberPages; $i++) //On fait notre boucle
 {
      //On va faire notre condition
@@ -36,7 +40,8 @@ for($i=1; $i<=$numberPages; $i++) //On fait notre boucle
      }  
      else //Sinon...
      {
-          echo ' <a href="/blog/liste-signalement/page-'.$i.'">'.$i.'</a> ';
+          echo ' <a class="lienPage" href="/critique/film/'.$i.'">'.$i.'</a> ';
      }
-}
-
+} ?>
+</p>
+</div>

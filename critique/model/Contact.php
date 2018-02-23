@@ -35,4 +35,11 @@ class Contact extends Database {
 		$delete->execute(array($id));
 		return $delete;
 	}
+
+	public function getMessage(){
+		$data_total= $this->_db->query('SELECT COUNT(read_message = 0) AS total FROM contact');
+		$data = $data_total->fetch();
+		$total = $data['total'];
+		return $total;
+	}
 }
