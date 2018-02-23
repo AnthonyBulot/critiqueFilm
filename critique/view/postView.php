@@ -19,7 +19,7 @@
 
 
 <?php
-if (isset($report) && $report == true){
+if (isset($_GET['report']) && $_GET['report'] == true){
     echo '<p class="info"> Le commentaire a bien été signalé ! </p>';
 }
 while ($comment = $comments->fetch())
@@ -30,7 +30,7 @@ while ($comment = $comments->fetch())
     <p ><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_fr'] ?></p>
     <p><?= $comment['note'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
-    <p><a href="/critique/film/<?= $post['id'] ?>/commentaire-<?= $comment['id'] ?>">Signaler</a></p>
+    <p><a href="/critique/film/report/commentaire/<?= $comment['id'] ?>/<?= $post['id'] ?>">Signaler</a></p>
     <?php if (isset($_SESSION['name']) && $comment['author'] == $_SESSION['name']){ ?>
     <p><a href="/critique/film/modification/commentaire-<?= $comment['id'] ?>">Modifier</a></p>
     <?php }

@@ -6,12 +6,14 @@ class ControlerFront extends Controler
 	protected $_objectPost;
 	protected $_objectComment;
 	protected $_objectContact;
+	protected $_objectReport;
 
 	public function __construct(){
 		$this->_objectUser = new User();
 		$this->_objectPost = new Post();
 		$this->_objectComment = new Comment();
 		$this->_objectContact = new Contact();
+		$this->_objectReport = new Report();
 	}
 
 	public function home(){
@@ -317,5 +319,22 @@ class ControlerFront extends Controler
         else {
         	header('Location: /critique/film/' . $_GET['postId']);
         }	
+	}
+
+	public function addReport(){
+		if (!(isset($_GET['postId']) && $_GET['postId'] > 0)) {
+			throw new NewException('Aucun identifiant de billet envoyé', 400);
+        }
+        if (!(isset($_GET['id']) && $_GET['id'] > 0)) {
+            throw new NewException('Aucun identifiant de commentaire envoyé', 400);
+        }
+
+		$report = $this->_objectReport->addReport($_GET['id']);
+    	if ($report === false) {
+       	 	throw new NewException('Echec du signalement !');
+    	}
+    	else {
+    		header('Location: /critique/film/' . $_GET['postId'] . '/report');
+    	}		
 	}
 }

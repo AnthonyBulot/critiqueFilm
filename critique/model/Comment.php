@@ -31,4 +31,18 @@ class Comment extends Database{
 		$req->execute(array($data['note'], $data['content'], $data['id']));
 		return $req;
 	}
+
+	public function deleteComment($id) {
+		$delete = $this->_db->prepare('DELETE FROM comment WHERE id = ?');
+		$delete->execute(array($id));
+		return $delete;
+	}
+
+	public function numberComments()
+	{
+		$data_total= $this->_db->query('SELECT COUNT(*) AS total FROM comment');
+		$data = $data_total->fetch();
+		$total = $data['total'];
+		return $total;
+	}
 }

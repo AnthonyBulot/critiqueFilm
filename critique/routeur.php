@@ -15,6 +15,7 @@ $routeur = [
 	"#^/critique/film/ajout-fiche-film$#" => "ControlerBack@savePost",
 	"#^/critique/film/([0-9]+)/suprimer$#" => "ControlerBack@deletePost",
 	"#^/critique/film/([0-9]+)$#" => "ControlerFront@getPost",
+	"#^/critique/film/([0-9]+)/report$#" => "ControlerFront@getPost",
 	"#^/critique/film/([0-9]+)/ajout-commentaire$#" => "ControlerFront@addComment",
 	"#^/critique/film/([0-9]+)/modification$#" => "ControlerBack@formUpdatePost",
 	"#^/critique/film/([0-9]+)/modification-fiche-film$#" => "ControlerBack@updatePost",
@@ -27,6 +28,10 @@ $routeur = [
 	"#^/critique/film/contact/([a-zA-Z0-9]+)$#" => "ControlerBack@getOneContact",
 	"#^/critique/film/contact/delete/([0-9]+)$#" => "ControlerBack@deleteContact",
 	"#^/critique/film/modification/commentaire-([0-9]+)$#" => "ControlerFront@formUpdateComment",
-	"#^/critique/film/modification/commentaire/([0-9]+)/([0-9]+)$#" => "ControlerFront@updateComment"
+	"#^/critique/film/modification/commentaire/([0-9]+)/([0-9]+)$#" => "ControlerFront@updateComment",
+	"#^/critique/film/report/commentaire/([0-9]+)/([0-9]+)$#" => "ControlerFront@addReport",
+	"#^/critique/film/commentaire-signale#" => "ControlerBack@listReport",
+	"#^/critique/film/suprimer/signalement/([0-9]+)$#" => "ControlerBack@deleteReport",
+	"#^/critique/film/suprimer/commentaire/([0-9]+)$#" => "ControlerBack@deleteComment"
 
 ];
