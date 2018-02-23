@@ -62,6 +62,7 @@ class ControlerBack extends Controler
 			"description" => $_POST['description'],
 			"actor" => $_POST['actor'],
 			"category" => $_POST['category'],
+			"note" => $_POST['note'],
 			"date_exit" => $_POST['date_exit'],
 			"url" => basename($_FILES['poster']['name']),
 		];

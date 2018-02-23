@@ -7,7 +7,10 @@ while($data = $posts->fetch()){
 		<div class="col-lg-8">
 			<p><?= htmlspecialchars($data['title']) ?></p>
 			<p>Sorti le : <?= $data['date_fr'] ?></p>
-			<p><?= htmlspecialchars($data['actor']) ?></p>
+			<div class="row">
+				<p class="col-lg-4"> Note : <?= $data['note'] ?></p>
+				<p class="col-lg-8"><?= htmlspecialchars($data['actor']) ?></p>
+			</div>			
 			<p><?= htmlspecialchars($data['description']) ?></p>
 			<div class="row">
 				<p class="col-lg-4"><a href="/critique/film/<?= $data['id'] ?>">Commentaire</a></p>

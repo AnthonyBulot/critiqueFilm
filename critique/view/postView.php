@@ -5,8 +5,10 @@
     <div class="col-lg-8">
 	    <p><?= htmlspecialchars($post['title']) ?></p>
         <p>Sorti le : <?= $post['date_fr'] ?></p>
-	    <p>Note :<?= $note ?>/100</p>
-	    <p><?= htmlspecialchars($post['actor']) ?></p>
+        <div class="row">
+            <p class="col-lg-4"> Note : <?= $post['note'] ?></p>
+            <p class="col-lg-8"><?= htmlspecialchars($post['actor']) ?></p>
+        </div>
 	    <p><?= htmlspecialchars($post['description']) ?></p>
         <div class="row">
 	        <?php if (isset($_SESSION['admin'])) { ?>
@@ -44,7 +46,7 @@ while ($comment = $comments->fetch())
 <div class="row"><h3 class="col-lg-12">Ajouté un commentaire</h3></div>
 <?php
 if (isset($_SESSION['name'])){
-    if(!array_key_exists($_SESSION['name'], $author)){ ?>   
+    if(!isset($author) || (isset($author) && !array_key_exists($_SESSION['name'], $author))){ ?>   
         <div class="row">  
             <form method="post" action="/critique/film/<?= $post['id'] ?>/ajout-commentaire" class="col-lg-5" />
                 <input type="hidden" name="author" value="<?= $_SESSION['name'] ?>" />

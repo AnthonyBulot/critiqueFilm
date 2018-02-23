@@ -70,9 +70,7 @@ class ControlerFront extends Controler
     	else : $post = $this->_objectPost->getPost($_GET['id']);
     	endif;
 
-        $averageNote = $this->_objectComment->getNote($_GET['id']);
         $comments = $this->_objectComment->getComments($_GET['id']);
-        $note = ceil($averageNote['AVG(note)']);
 
         while ($comment = $comments->fetch()){
         	$key = $comment['author'];
@@ -80,12 +78,18 @@ class ControlerFront extends Controler
         }
 
         $comments = $this->_objectComment->getComments($_GET['id']);
-        $data = [
-        	'post' => $post,
-        	'comments' => $comments,
-        	'note' => $note,
-        	'author' => $author,
-        ];	
+        if(isset($author)){
+        	$data = [
+        		'post' => $post,
+        		'comments' => $comments,
+        		'author' => $author,
+        	];	
+        } else {
+        	$data = [
+        		'post' => $post,
+        		'comments' => $comments,
+        	];
+        }
         $this->render('postView', $data);	
 	}
 
@@ -179,13 +183,19 @@ class ControlerFront extends Controler
         	'note' => $_POST['note'],
         	'id' => $_GET['id'],
         ];
-        var_dump($data);
         $add = $this->_objectComment->addComment($data);
-        var_dump($add);
         if(!$add){
 			throw new NewException('Commentaire non ajouté', 409);        	
         }
         else {
+        	$averageNote = $this->_objectComment->getNote($_GET['id']);
+            $note = ceil($averageNote['AVG(note)']);
+            $dataNote = [
+            	'id' => $_GET['id'],
+            	'note' => $note,
+            ];
+            $this->_objectPost->addNote($dataNote);
+
         	header('Location: /critique/film/' . $_GET['id']);
         }
 	}

@@ -10,6 +10,10 @@
 		<textarea rows=8 name="description" class="form-control"></textarea>
 	</div>
 	<div class="form-group">
+		<label for="note">Note (de 0 à 100) : </label>
+		<input type="text" name="note" class="form-control" value="100" />
+	</div>
+	<div class="form-group">
 		<label for="actor">Acteurs Principaux : </label>
 		<input type="text" name="actor" class="form-control"/>
 	</div>
