@@ -3,7 +3,7 @@
 while($data = $search->fetch()){
 ?>
 	<div class="row">
-		<div class="col-lg-4"><img src="css/poster/<?= $data['url_image'] ?>" alt="Affiche de <?= $data['title'] ?>"/></div>
+		<div class="col-lg-4"><img class="imagePost" src="css/poster/<?= $data['url_image'] ?>" alt="Affiche de <?= $data['title'] ?>"/></div>
 		<div class="col-lg-8">
 			<p><?= htmlspecialchars($data['title']) ?></p>
 			<p>Sorti le : <?= $data['date_fr'] ?></p>

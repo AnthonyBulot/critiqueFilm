@@ -40,7 +40,7 @@ class ControlerBack extends Controler
 		if (isset($_FILES['poster']) AND $_FILES['poster']['error'] == 0)
 		{
         	// Testons si le fichier n'est pas trop gros
-        	if ($_FILES['poster']['size'] <= 1000000)
+        	if ($_FILES['poster']['size'] <= 10000000)
         	{
                 // Testons si l'extension est autorisée
                 $infosfichier = pathinfo($_FILES['poster']['name']);
@@ -48,8 +48,9 @@ class ControlerBack extends Controler
                 $extensions_autorisees = array('jpg', 'jpeg', 'png');
                 if (in_array($extension_upload, $extensions_autorisees))
                 {
+                		$url = uniqid('', true) . '.' . $infosfichier['extension'];
                         // On peut valider le fichier et le stocker définitivement
-                        move_uploaded_file($_FILES['poster']['tmp_name'], 'css/poster/' . basename($_FILES['poster']['name']));
+                        move_uploaded_file($_FILES['poster']['tmp_name'], 'css/poster/' . $url);
                 }
         	}
 		}
@@ -64,7 +65,7 @@ class ControlerBack extends Controler
 			"category" => $_POST['category'],
 			"note" => $_POST['note'],
 			"date_exit" => $_POST['date_exit'],
-			"url" => basename($_FILES['poster']['name']),
+			"url" => $url,
 		];
 		$newPost = $this->_objectPost->add($data);
 		if (!$newPost) {

@@ -1,0 +1,18 @@
+.category, .cache{
+	display: none;
+}
+.center{
+	text-align: center;
+}
+
+.imagePost{
+	height: 350px;
+	width: auto;
+}
+
+.imageHome{
+	height: 500px;
+	width: auto;
+}
+
+

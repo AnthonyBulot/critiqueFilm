@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>Critique de film</title>
-        <link href="css/styles.css" rel="stylesheet" /> 
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/style/style.css" rel="stylesheet" /> 
+        <link href="css/style/bootstrap.min.css" rel="stylesheet" />
     </head>
         
     <body>

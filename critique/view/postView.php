@@ -1,7 +1,7 @@
 <?php $template = 'template'; ?>
 
 <div class="row">
-    <div class="col-lg-4"><img src="css/poster/<?= $post['url_image'] ?>" alt="Affiche de <?= $post['title'] ?>"/></div>
+    <div class="col-lg-4"><img class="imagePost" src="css/poster/<?= $post['url_image'] ?>" alt="Affiche de <?= $post['title'] ?>"/></div>
     <div class="col-lg-8">
 	    <p><?= htmlspecialchars($post['title']) ?></p>
         <p>Sorti le : <?= $post['date_fr'] ?></p>
@@ -52,11 +52,11 @@ if (isset($_SESSION['name'])){
                 <input type="hidden" name="author" value="<?= $_SESSION['name'] ?>" />
                 <div class="form-group">
                     <label for="note">Note</label>
-                    <input type="radio" name="note" value="20">
-                    <input type="radio" name="note" value="40">
-                    <input type="radio" name="note" value="60">
-                    <input type="radio" name="note" value="80">
-                    <input type="radio" name="note" value="100">
+                    <input type="radio" name="note" value="1"  checked>
+                    <input type="radio" name="note" value="2">
+                    <input type="radio" name="note" value="3">
+                    <input type="radio" name="note" value="4">
+                    <input type="radio" name="note" value="5">
                 </div>
                 <div class="form-group">
                     <label for="comment">Commentaire</label>

@@ -37,7 +37,7 @@ class Contact extends Database {
 	}
 
 	public function getMessage(){
-		$data_total= $this->_db->query('SELECT COUNT(read_message = 0) AS total FROM contact');
+		$data_total= $this->_db->query('SELECT COUNT(*) AS total FROM contact GROUP BY read_message');
 		$data = $data_total->fetch();
 		$total = $data['total'];
 		return $total;

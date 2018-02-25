@@ -10,8 +10,12 @@
 		<textarea rows=8 name="description" class="form-control"></textarea>
 	</div>
 	<div class="form-group">
-		<label for="note">Note (de 0 à 100) : </label>
-		<input type="text" name="note" class="form-control" value="100" />
+        <label for="note">Note : </label>
+        <input type="radio" name="note" value="1">
+        <input type="radio" name="note" value="2">
+        <input type="radio" name="note" value="3">
+        <input type="radio" name="note" value="4">
+        <input type="radio" name="note" value="5" checked>
 	</div>
 	<div class="form-group">
 		<label for="actor">Acteurs Principaux : </label>
