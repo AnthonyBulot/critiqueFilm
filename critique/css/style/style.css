@@ -1,10 +1,24 @@
-.category, .cache{
+body{
+	background-color: black;
+}
+p, a, h2, h3, label{
+	color: white;
+}
+
+a:hover, .lienCategory:hover{
+	text-decoration: none;
+	color: red;
+}
+#category, .cache{
 	display: none;
 }
 .center{
 	text-align: center;
 }
-
+.comInfo{
+	font-size: 1.2em;
+	font-weight: bold;
+}
 .imagePost{
 	height: 350px;
 	width: auto;
@@ -17,5 +31,38 @@
 
 #carte, #map{
 	height: 500px;
+}
+
+#right, #left{
+	font-size: 1.8em;
+	font-weight: bold;
+}
+#right{
+	position: absolute;
+	top: 350px;
+	right: 20%;
+}
+#left{
+	position: absolute;
+	top: 350px;
+	left: 20%;
+}
+
+.fiche{
+	margin-top: 10px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid red;
+}
+
+header{
+	margin-bottom: 25px;
+}
+footer{
+	border-top: 2px solid red;
+	padding-top: 10px;
+	margin-top: 25px;
+}
+header{
+	margin-top: 15px;
 }
 

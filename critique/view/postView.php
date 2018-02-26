@@ -1,9 +1,9 @@
 <?php $template = 'template'; ?>
 
 <div class="row">
-    <div class="col-lg-4"><img class="imagePost" src="css/poster/<?= $post['url_image'] ?>" alt="Affiche de <?= $post['title'] ?>"/></div>
+    <div class="col-lg-4"><img class="imagePost img-thumbnail" src="css/poster/<?= $post['url_image'] ?>" alt="Affiche de <?= $post['title'] ?>"/></div>
     <div class="col-lg-8">
-	    <p><?= htmlspecialchars($post['title']) ?></p>
+	    <h2><?= htmlspecialchars($post['title']) ?></h2>
         <p>Sorti le : <?= $post['date_fr'] ?></p>
         <div class="row">
             <p class="col-lg-4"> Note : <?= $post['note'] ?></p>
@@ -66,9 +66,9 @@ if (isset($_SESSION['name'])){
             </form>
         </div> 
     <?php } else { ?>
-            <p class="col-lg-12">Vous avez déjà commenté</p>
+            <p class="col-lg-12 center comInfo">Vous avez déjà commenté</p>
     <?php }
 } else { ?>
-    <p class="col-lg-12">Vous devez être connecté pour mettre des commentaire !</p>
+    <p class="col-lg-12 center comInfo">Vous devez être connecté pour mettre des commentaire !</p>
 <?php
 }

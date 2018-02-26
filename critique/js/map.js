@@ -3,9 +3,6 @@ var map = {
 	paris: {lat: 48.864710, lng: 2.344655},
 	map: null,
 	apiCinema: null,
-	reservation: null,
-	markerActifNom: null,
-	markerActifDispo: null,
 
 	init : function(station){
 		this.initMap();
@@ -14,12 +11,14 @@ var map = {
 			this.initMarker(i, station);
 		}
 	},
+
 	initMap : function(){
 		this.map = new google.maps.Map(document.getElementById("map"), {
     	zoom: 14,
     	center: this.paris
     	});
 	},
+
 	initMarker : function(i, station){
 		this.apiCinema = Object.create(apiCinema);
 		this.apiCinema.init(i, station);
@@ -28,11 +27,14 @@ var map = {
     		nom: this.apiCinema.name,
     		adresse: this.apiCinema.address,
 			arrondissement: this.apiCinema.arrondissement,
-     		map: this.map           	
+     		map: this.map,  
+     		icon: "css/icon/movies.png",         	
     	});
-			
+
     	this.clicMarker(marker);
 	},
+
+
 	clicMarker : function(marker){
 		google.maps.event.addDomListener(marker, 'click', function() {
     		var reserv = document.getElementById("reserv");

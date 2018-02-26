@@ -2,6 +2,7 @@ var diaporama = {
 	//les propriétés dont tu as besoin pour le diaporama
 	position: 0,
 	tabImage: [],
+	tabHref: [],
 
 	init: function(){
 		this.initImages();
@@ -12,10 +13,13 @@ var diaporama = {
 		this.boutonG();
 	},
 	initImages: function(){
-		var photo = $(".diapo")
+		var photo = $(".diapo");
+		var lien = $(".lienDiapo");
 		for (var i = 0; i <= 3; i++) {
 			var srcPhoto = photo[i].src;
+			var hrefPhoto = lien[i].href;
 			this.tabImage.push(srcPhoto);
+			this.tabHref.push(hrefPhoto);
 		}
 	},
 	right: function() {
@@ -25,6 +29,8 @@ var diaporama = {
 			this.position = 0;
 		}
 		var photo = document.getElementById("maPhoto");
+		var lienPhoto = document.getElementById("lienMaPhoto");
+		lienPhoto.href = this.tabHref[this.position];
 		photo.src = this.tabImage[this.position];
 	},
 	left: function() {
@@ -35,6 +41,8 @@ var diaporama = {
 		}
 		var photo = document.getElementById("maPhoto");
 		photo.src = this.tabImage[this.position];
+		var lienPhoto = document.getElementById("lienMaPhoto");
+		lienPhoto.href = this.tabHref[this.position];
 	},
 
 	slide: function() {

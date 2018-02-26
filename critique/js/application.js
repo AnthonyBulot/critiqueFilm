@@ -17,15 +17,10 @@ var application = {
         	console.error("Erreur réseau avec l'URL " + url);
     	});
     	req.send(null);
-	},
-	
-	init: function(e){
-		this.ajax();
 	}
-	//les méthodes utiles à l'application
 }
 
-$(document).ready(function(e){
+$(document).ready(function(){
 	app = Object.create(application);
-	app.init(e);
+	app.ajax();
 });
