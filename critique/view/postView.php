@@ -6,8 +6,8 @@
 	    <h2><?= htmlspecialchars($post['title']) ?></h2>
         <p>Sorti le : <?= $post['date_fr'] ?></p>
         <div class="row">
-            <p class="col-lg-4"> Note : <?= $post['note'] ?></p>
-            <p class="col-lg-8"><?= htmlspecialchars($post['actor']) ?></p>
+            <p class="col-lg-4"> Note : <?= $post['note'] ?>/5</p>
+            <p class="col-lg-8">Avec : <?= htmlspecialchars($post['actor']) ?></p>
         </div>
 	    <p><?= htmlspecialchars($post['description']) ?></p>
         <div class="row">

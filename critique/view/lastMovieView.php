@@ -8,8 +8,8 @@ while($data = $posts->fetch()){
 			<h2><?= htmlspecialchars($data['title']) ?></h2>
 			<p>Sorti le : <?= $data['date_fr'] ?></p>
 			<div class="row">
-				<p class="col-lg-4"> Note : <?= $data['note'] ?></p>
-				<p class="col-lg-8"><?= htmlspecialchars($data['actor']) ?></p>
+				<p class="col-lg-4"> Note : <?= $data['note'] ?>/5</p>
+				<p class="col-lg-8">Avec : <?= htmlspecialchars($data['actor']) ?></p>
 			</div>
 			<p><?= htmlspecialchars($data['description']) ?></p>
 			<div class="row">

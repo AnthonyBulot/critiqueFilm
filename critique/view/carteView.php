@@ -2,7 +2,7 @@
 
 <div class="row" id="carte">
 	<div class="col-lg-7" id="map"></div>
-	<div class="col-lg-5" id="reserv">
+	<div class="col-lg-4" id="reserv">
 		<h2 class="center" id="detail"></h2>
 		<p id="nom"></p>
 		<p id="adresse"></p>

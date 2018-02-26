@@ -13,7 +13,7 @@ class Contact extends Database {
 	}
 
 	public function getContact(){
-		$req = $this->_db->prepare('SELECT id, name_user, content, email, read_message, DATE_FORMAT(date_message, \'%d/%m/%Y à %H:%i:%s\') AS date_fr FROM contact ORDER BY date_message');
+		$req = $this->_db->prepare('SELECT id, name_user, content, email, read_message, DATE_FORMAT(date_message, \'%d/%m/%Y à %H:%i:%s\') AS date_fr FROM contact ORDER BY date_message DESC');
 		$req->execute();
 		return $req;
 	}
