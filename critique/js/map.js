@@ -44,8 +44,8 @@ var map = {
     		var arrondissement = document.getElementById("arrondissement");
 
     		detail.textContent = "Détails de votre cinéma !";
-			nom.textContent = this.nom;
-			adresse.textContent = this.adresse;
+			nom.textContent = "Nom du cinéma : " + this.nom;
+			adresse.textContent = "Adresse : " + this.adresse;
 			arrondissement.textContent = this.arrondissement;
 
 			reserv.style.border = "black 3px solid";

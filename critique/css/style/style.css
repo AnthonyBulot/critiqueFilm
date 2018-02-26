@@ -1,7 +1,7 @@
 body{
 	background-color: black;
 }
-p, a, h2, h3, label{
+p, a, h2, h3, label, ul, li{
 	color: white;
 }
 
@@ -47,12 +47,12 @@ a:hover, .lienCategory:hover{
 	top: 350px;
 	left: 20%;
 }
-
 .fiche{
 	margin-top: 10px;
 	padding-bottom: 5px;
 	border-bottom: 2px solid red;
 }
+
 
 header{
 	margin-bottom: 25px;
@@ -66,3 +66,25 @@ header{
 	margin-top: 15px;
 }
 
+.navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navigation a, .navigation span {
+  display: block;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+.navigation .subMenu {
+  margin: 0;
+  padding: 0;
+}
+.navigation ul.subMenu a {
+  background: none;
+  padding: 3px 20px;
+}
+
+.read{
+	opacity: 0;
+}

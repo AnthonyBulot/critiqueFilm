@@ -15,22 +15,25 @@
                     <div class="col-lg-8">
                         <div class="row">
                             <a href="/critique/film/accueil" class="col-lg-2">Accueil</a>
-                            <a href="/critique/film/dernier-film" class="col-lg-3">Dernières Sortie</a>
-                            <p class="col-lg-2 lienCategory">Catégorie</p>
-                            <div id="category">
-                                <a href="/critique/film/category/Action">Action</a>
-                                <a href="/critique/film/category/Aventure">Aventure</a>
-                                <a href="/critique/film/category/Comedie">Comedie</a>
-                                <a href="/critique/film/category/Drame">Drame</a>
-                                <a href="/critique/film/category/Famille">Famille</a>
-                                <a href="/critique/film/category/Fantastique">Fantastique</a>
-                                <a href="/critique/film/category/Hero">Hero</a>
-                                <a href="/critique/film/category/Histoire">Histoire</a>
-                                <a href="/critique/film/category/Horreur">Horreur</a>
-                                <a href="/critique/film/category/Policier">Policier</a>
-                                <a href="/critique/film/category/Science-Fiction">Science-Fiction</a>
-                                <a href="/critique/film/category/Romantique">Romantique</a>
-                            </div>
+                            <a href="/critique/film/dernier-film" class="col-lg-2">Films</a>
+                            <ul class="navigation col-lg-3" id="lienCategory">
+                                <li class="toggleSubMenu"><span>Catégorie</span>
+                                    <ul class="subMenu">
+                                        <li><a href="/critique/film/category/Action">Action</a></li>
+                                        <li><a href="/critique/film/category/Aventure">Aventure</a></li>
+                                        <li><a href="/critique/film/category/Comedie">Comedie</a></li>
+                                        <li><a href="/critique/film/category/Drame">Drame</a></li>
+                                        <li><a href="/critique/film/category/Famille">Famille</a></li>
+                                        <li><a href="/critique/film/category/Fantastique">Fantastique</a></li>
+                                        <li><a href="/critique/film/category/Hero">Hero</a></li>
+                                        <li><a href="/critique/film/category/Histoire">Histoire</a></li>
+                                        <li><a href="/critique/film/category/Horreur">Horreur</a></li>
+                                        <li><a href="/critique/film/category/Policier">Policier</a></li>
+                                        <li><a href="/critique/film/category/Science-Fiction">Science-Fiction</a></li>
+                                        <li><a href="/critique/film/category/Romantique">Romantique</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                             <p class="col-lg-2"><a href="/critique/film/contact">Contact</a></p>                
                             <?php if (isset($_SESSION['user'])): ?>                
                             <a href="/critique/film/utilisateur" class="col-lg-2">Utilisateur</a>
@@ -55,12 +58,17 @@
                     </div>
                 </div>    
 
-            </header>        
+            </header>  
+            <script src="js/jquery.js"></script>
+            <script src="js/menu.js"></script>
             <section>      
                 <?= $content ?>
             </section> 
             <footer>
                 <div class="row">
+                    <a href="/critique/film/accueil" class="col-lg-2">Accueil</a>
+                    <a href="/critique/film/dernier-film" class="col-lg-3">Dernières Sortie</a>
+                    <p class="col-lg-2"><a href="/critique/film/contact">Contact</a></p> 
                 <?php if (isset($_SESSION['admin'])): ?>                
                     <p class="col-lg-2"><a href="/critique/film/administration" class="lienMenu">Page Administration</a></p>
                     <p class="col-lg-2"><a href="/critique/film/deconnect" class="lienMenu">Déconnexion</a></p>

@@ -18,5 +18,4 @@
 	<p id="right">>></p>
 </div>
 
-<script src="js/jquery.js"></script>
 <script src="js/diaporama.js"></script>

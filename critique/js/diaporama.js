@@ -48,7 +48,7 @@ var diaporama = {
 	slide: function() {
 		setInterval(function(){
 			diaporama.right();
-		}, 7000);		
+		}, 4000);		
 	},
 	flecheD: function(){
 		document.addEventListener("keydown", function (e) {
