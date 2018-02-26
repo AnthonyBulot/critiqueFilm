@@ -15,4 +15,7 @@
 	width: auto;
 }
 
+#carte, #map{
+	height: 500px;
+}
 

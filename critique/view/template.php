@@ -42,7 +42,8 @@
                     </div>
                 </div>    
                 <div class="row">
-                    <form method="post" action="/critique/film/recherche-film" class="col-lg-offset-8 col-lg-4">
+                    <p class="col-lg-offset-6 col-lg-2"><a href="/critique/film/carte-cinema-paris">Cinéma Parisien</a></p>
+                    <form method="post" action="/critique/film/recherche-film" class="col-lg-4">
                         <div class="input-group">
                             <input class="form-control" type="search" name="search" placeholder="Nom du film ou de l'acteur" >
                             <span class="input-group-btn">

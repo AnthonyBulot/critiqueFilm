@@ -32,6 +32,7 @@ $routeur = [
 	"#^/critique/film/report/commentaire/([0-9]+)/([0-9]+)$#" => "ControlerFront@addReport",
 	"#^/critique/film/commentaire-signale#" => "ControlerBack@listReport",
 	"#^/critique/film/suprimer/signalement/([0-9]+)$#" => "ControlerBack@deleteReport",
-	"#^/critique/film/suprimer/commentaire/([0-9]+)$#" => "ControlerBack@deleteComment"
+	"#^/critique/film/suprimer/commentaire/([0-9]+)$#" => "ControlerBack@deleteComment",
+	"#^/critique/film/carte-cinema-paris$#" => "ControlerFront@carte"
 
 ];

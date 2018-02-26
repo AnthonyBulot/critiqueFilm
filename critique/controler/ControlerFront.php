@@ -349,4 +349,8 @@ class ControlerFront extends Controler
     		header('Location: /critique/film/' . $_GET['postId'] . '/report');
     	}		
 	}
+
+	public function carte(){
+		$this->render('carteView');
+	}
 }
