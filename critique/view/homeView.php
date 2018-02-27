@@ -1,7 +1,7 @@
 <?php $template = 'template'; ?>
 <div class="row">
-	<p id="left"><<</p>
-	<div class="col-lg-offset-3 col-lg-6 image">
+	<p class="col-lg-offset-2 col-lg-1 col-md-1 col-sm-1" id="left"><<</p>
+	<div class=" col-lg-6 col-md-10 col-sm-10 image">
 	<?php
 	while($url_image = $url->fetch()){
 		if(!isset($i)){
@@ -15,7 +15,7 @@
 		$i++;
 	} ?>
 	</div>
-	<p id="right">>></p>
+	<p class="col-lg-1 col-md-1 col-sm-1" id="right">>></p>
 </div>
 
 <script src="js/diaporama.js"></script>

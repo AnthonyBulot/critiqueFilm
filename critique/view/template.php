@@ -11,13 +11,13 @@
         <div class="container">
             <header>
                 <div class="row">
-                    <p class="col-lg-2"><img src="css/logo.png" alt="logo" /></p>
-                    <div class="col-lg-8">
+                    <p class="col-lg-2 col-md-2 col-sm-12 col-xs-12 "><img src="css/logo.png" alt="logo" /></p>
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                         <div class="row">
-                            <a href="/critique/film/accueil" class="col-lg-2">Accueil</a>
-                            <a href="/critique/film/dernier-film" class="col-lg-2">Films</a>
-                            <ul class="navigation col-lg-3" id="lienCategory">
-                                <li class="toggleSubMenu"><span>Catégorie</span>
+                            <a href="/critique/film/accueil" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 lienMenu">Accueil</a>
+                            <a href="/critique/film/dernier-film" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 lienMenu">Films</a>
+                            <ul class="navigation col-lg-3 col-md-2 col-sm-3 col-xs-4 " id="lienCategory">
+                                <li class="toggleSubMenu lienMenu"><span>Catégorie</span>
                                     <ul class="subMenu">
                                         <li><a href="/critique/film/category/Action">Action</a></li>
                                         <li><a href="/critique/film/category/Aventure">Aventure</a></li>
@@ -34,19 +34,19 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <p class="col-lg-2"><a href="/critique/film/contact">Contact</a></p>                
+                            <p class="col-lg-2 col-md-2 col-sm-2 col-xs-4 lienMenu"><a href="/critique/film/contact">Contact</a></p>                
                             <?php if (isset($_SESSION['user'])): ?>                
-                            <a href="/critique/film/utilisateur" class="col-lg-2">Utilisateur</a>
-                            <a href="/critique/film/deconnect" class="col-lg-1">Déconnexion</a>
+                            <a href="/critique/film/utilisateur" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 lienMenu">Utilisateur</a>
+                            <a href="/critique/film/deconnect" class="col-lg-1 col-md-1 col-sm-2 lienMenu">Déconnexion</a>
                             <?php else: ?>              
-                            <a href="/critique/film/formulaire-connexion" class="col-lg-3">Indentifiez-vous</a>
+                            <a href="/critique/film/formulaire-connexion" class="col-lg-3 col-md-3 col-sm-3 col-xs-4 lienMenu">Indentifiez-vous</a>
                             <?php                                   
                             endif;
                             ?>
                         </div>
                         <div class="row">
-                            <p class="col-lg-4"><a href="/critique/film/carte-cinema-paris">Cinéma Parisien</a></p>
-                            <form method="post" action="/critique/film/recherche-film" class="col-lg-offset-2 col-lg-6">
+                            <p class="col-lg-4 col-md-6 col-sm-4 col-xs-6 lienMenu"><a href="/critique/film/carte-cinema-paris">Cinéma Parisien</a></p>
+                            <form method="post" action="/critique/film/recherche-film" class="col-lg-offset-2 col-lg-6  col-md-5 col-sm-6 col-xs-6">
                                 <div class="input-group">
                                     <input class="form-control" type="search" name="search" placeholder="Nom du film ou de l'acteur" >
                                     <span class="input-group-btn">
@@ -66,14 +66,14 @@
             </section> 
             <footer>
                 <div class="row">
-                    <a href="/critique/film/accueil" class="col-lg-2">Accueil</a>
-                    <a href="/critique/film/dernier-film" class="col-lg-3">Dernières Sortie</a>
-                    <p class="col-lg-2"><a href="/critique/film/contact">Contact</a></p> 
+                    <a href="/critique/film/accueil" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Accueil</a>
+                    <a href="/critique/film/dernier-film" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Films</a>
+                    <p class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="/critique/film/contact">Contact</a></p> 
                 <?php if (isset($_SESSION['admin'])): ?>                
-                    <p class="col-lg-2"><a href="/critique/film/administration" class="lienMenu">Page Administration</a></p>
-                    <p class="col-lg-2"><a href="/critique/film/deconnect" class="lienMenu">Déconnexion</a></p>
+                    <p class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="/critique/film/administration" class="lienMenu">Page Administration</a></p>
+                    <p class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="/critique/film/deconnect" class="lienMenu">Déconnexion</a></p>
                     <?php else: ?>              
-                    <p class="col-lg-2"><a href="/critique/film/formulaire-admin">Administration</a></p>
+                    <p class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="/critique/film/formulaire-admin">Administration</a></p>
                     <?php                                   
                     endif;
                 ?>

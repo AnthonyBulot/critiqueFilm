@@ -15,9 +15,9 @@ elseif (isset($_GET['delete']) && $_GET['delete'] == 2){ ?>
 while ($comment = $comments->fetch())
 {
 ?>
-	<div class="row">
+	<div class="row commentaire">
     	<div class="row"><p class="col-lg-12"><strong class="author"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_datefr'] ?></p></div>
-        <div class="row"><p class="col-lg-12">Note: <?= $comment['note'] ?></p></div>
+        <div class="row"><p class="col-lg-12">Note: <?= $comment['note'] ?>/5</p></div>
     	<div class="row"><p class="col-lg-12"><?= nl2br(htmlspecialchars($comment['content'])) ?></p></div>
     	<div class="row"><p class="col-lg-12">A été signaler <em class="report"><?= $comment['report'] ?></em> fois</p></div>
         <div class="row">

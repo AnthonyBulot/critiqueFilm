@@ -19,7 +19,7 @@
     </div> 
 </div>
 
-<div class="row"><h2 class="col-lg-12">Commentaire : </h2></div>
+<div class="row"><h2 class="col-lg-12 titre">Commentaire : </h2></div>
 
 
 <?php
@@ -30,9 +30,9 @@ while ($comment = $comments->fetch())
 {
 
 ?>
-<div class="row">            
+<div class="row commentaire">            
     <div class="row"><p class="col-lg-12"><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_fr'] ?></p></div>
-    <div class="row"><p class="col-lg-12"class="col-lg-12"><?= $comment['note'] ?></p></div>
+    <div class="row"><p class="col-lg-12"class="col-lg-12">Note : <?= $comment['note'] ?>/5</p></div>
     <div class="row"><p class="col-lg-12"><?= nl2br(htmlspecialchars($comment['content'])) ?></p></div>
     <div class="row">
     <p class="col-lg-1"><a href="/critique/film/report/commentaire/<?= $comment['id'] ?>/<?= $post['id'] ?>">Signaler</a></p>

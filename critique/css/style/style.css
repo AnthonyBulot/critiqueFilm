@@ -39,17 +39,15 @@ a:hover, .lienCategory:hover{
 #right, #left{
 	font-size: 1.8em;
 	font-weight: bold;
+	width: 60px;
+	border: 1px solid gray;
+	border-radius: 50px;
+	background-color: gray;
+	color: black;
+	position: relative;
+	top: 230px;
 }
-#right{
-	position: absolute;
-	top: 350px;
-	right: 20%;
-}
-#left{
-	position: absolute;
-	top: 350px;
-	left: 20%;
-}
+
 .fiche{
 	margin-top: 10px;
 	padding-bottom: 5px;
@@ -76,7 +74,6 @@ header{
 }
 .navigation a, .navigation span {
   display: block;
-  padding: 4px 10px;
   text-decoration: none;
 }
 .navigation .subMenu {
@@ -85,7 +82,6 @@ header{
 }
 .navigation ul.subMenu a {
   background: none;
-  padding: 3px 20px;
 }
 
 .read{
@@ -95,4 +91,26 @@ header{
 #aideCourriel{
 	color: red;
 	font-size: 1.2em;
+}
+#note{
+	opacity: 0;
+}
+
+.commentaire{
+	border-bottom: 1px solid gray;
+}
+
+.titre{
+	text-decoration: underline;
+}
+
+.lienMenu{
+	font-size: medium;
+}
+
+
+@media all and (max-device-width: 480px)
+{
+
+
 }
