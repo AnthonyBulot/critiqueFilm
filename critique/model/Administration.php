@@ -1,4 +1,5 @@
 <?php
+namespace Critique\model;
 
 class Administration extends Database {
 	public function connect($user){

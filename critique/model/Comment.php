@@ -1,4 +1,6 @@
 <?php 
+namespace Critique\model;
+
 
 class Comment extends Database{
 	public function getComments($postId){

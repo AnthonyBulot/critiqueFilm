@@ -1,4 +1,6 @@
 <?php 
+namespace Critique\model;
+
 
 class User extends Database {
 	public function add($data){

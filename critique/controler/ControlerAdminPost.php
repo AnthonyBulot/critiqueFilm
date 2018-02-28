@@ -1,16 +1,18 @@
 <?php
+namespace Critique\controler;
+
 
 class ControlerAdminPost extends Controler
 { 
 	protected $_objectPost;
 
-	public function __construct()
+	public function __construct($model)
 	{
 		if (!(isset($_SESSION['admin'])))
 		{
 			throw new NewException('Vous n\'avez pas accès à cette page', 401);
 		}
-		$this->_objectPost = new Post();
+		$this->_objectPost = $model['Post'];
 	}
 
 

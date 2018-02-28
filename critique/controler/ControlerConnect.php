@@ -1,11 +1,13 @@
 <?php
+namespace Critique\controler;
+
 
 class ControlerConnect extends Controler
 {
 	protected $_objectUser;
 
-	public function __construct(){
-		$this->_objectUser = new User();
+	public function __construct($model){
+		$this->_objectUser = $model['User'];
 
 	}
 

@@ -2,24 +2,23 @@
 namespace Critique\model;
 
 //Singleton
-class DbConnect
+class SingletonModel
 {
 	private $settings = [];
-	public $db;
+	public $_model;
 	private static $_instance;
 
 	public static function getInstance(){
 
 		if (is_null((self::$_instance))){
-
-			self::$_instance = new DbConnect();
+			self::$_instance = new SingletonModel();
 		}
 		return self::$_instance;
 	}
 
 	private function __construct(){
 		$this->settings = require 'config/config.php';
-		$this->db = $this->getDb();
+		$this->_model = $this->getModel();
 	}
 
 	public function get($key) {
@@ -30,12 +29,14 @@ class DbConnect
 		return $this->settings[$key];
 	}
 
-	private function getDb() {
-		$host = $this->get("db_host");
-		$name = $this->get("db_name");
-		$password = $this->get("db_pass");
-		$user = $this->get("db_user");
-
-		return new \PDO('mysql:host='. $host .';dbname='. $name .';charset=utf8', ''. $user .'', ''. $password .'');
+	private function getModel() {
+		return $model = [
+			'Post' => new Post(),
+			'Administration' => new Administration(),
+			'Comment' => new Comment(),
+			'Contact' => new Contact(),
+			'Report' => new Report(),
+			'User' => new User()
+		];
 	}
 }

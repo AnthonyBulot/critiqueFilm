@@ -1,13 +1,15 @@
 <?php
+namespace Critique\controler;
+
 
 class ControlerPost extends Controler
 {
 	protected $_objectPost;
 	protected $_objectComment;
 
-	public function __construct(){
-		$this->_objectPost = new Post();
-		$this->_objectComment = new Comment();
+	public function __construct($model){
+		$this->_objectPost = $model['Post'];
+		$this->_objectComment = $model['Comment'];
 	}
 
 	public function lastExit(){

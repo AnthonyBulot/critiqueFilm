@@ -1,4 +1,6 @@
 <?php
+namespace Critique\model;
+
 
 class Contact extends Database {
 	public function addContact($data){

@@ -1,11 +1,13 @@
 <?php
+namespace Critique\controler;
+
 
 class ControlerContact extends Controler
 {
 	protected $_objectContact;
 
-	public function __construct(){
-		$this->_objectContact = new Contact();
+	public function __construct($model){
+		$this->_objectContact = $model['Contact'];
 	}
 
 	public function formContact(){

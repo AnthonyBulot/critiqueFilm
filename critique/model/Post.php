@@ -1,4 +1,6 @@
 <?php
+namespace Critique\model;
+
 
 class Post extends Database{
 
@@ -36,7 +38,7 @@ class Post extends Database{
 
 	public function listPosts($first){
 		$posts= $this->_db->prepare('SELECT id, title, description, note, actor, category, url_image, DATE_FORMAT(exit_date, \'%d/%m/%Y\') AS date_fr FROM post ORDER BY exit_date DESC LIMIT :first, 10');
-		$posts->bindParam(':first', $first, PDO::PARAM_INT);
+		$posts->bindParam(':first', $first, \PDO::PARAM_INT);
         $posts->execute();
 		return $posts;
 	}
@@ -74,8 +76,8 @@ class Post extends Database{
 
 	public function category($data){
 		$posts= $this->_db->prepare('SELECT id, title, description, note, actor, category, url_image, DATE_FORMAT(exit_date, \'%d/%m/%Y\') AS date_fr FROM post WHERE category = :category ORDER BY exit_date DESC LIMIT :first, 10');
-		$posts->bindParam(':first', $data['first'], PDO::PARAM_INT);
-		$posts->bindParam(':category', $data['category'], PDO::PARAM_STR);
+		$posts->bindParam(':first', $data['first'], \PDO::PARAM_INT);
+		$posts->bindParam(':category', $data['category'], \PDO::PARAM_STR);
         $posts->execute();
 		return $posts;
 	}

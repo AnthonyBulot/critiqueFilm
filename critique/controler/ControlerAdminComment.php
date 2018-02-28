@@ -1,4 +1,6 @@
 <?php
+namespace Critique\controler;
+
 
 class ControlerAdminComment extends Controler
 {    
@@ -6,15 +8,15 @@ class ControlerAdminComment extends Controler
 	protected $_objectReport;
 	protected $_objectComment;
 
-	public function __construct()
+	public function __construct($model)
 	{
 		if (!(isset($_SESSION['admin'])))
 		{
 			throw new NewException('Vous n\'avez pas accès à cette page', 401);
 		}
-		$this->_objectPost = new Post();
-		$this->_objectReport = new Report();
-		$this->_objectComment = new Comment();
+		$this->_objectPost = $model['Post'];
+		$this->_objectReport = $model['Report'];
+		$this->_objectComment = $model['Comment'];
 	}
 	
 

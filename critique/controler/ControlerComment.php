@@ -1,4 +1,6 @@
 <?php
+namespace Critique\controler;
+
 
 class ControlerComment extends Controler
 {
@@ -6,10 +8,10 @@ class ControlerComment extends Controler
 	protected $_objectComment;
 	protected $_objectReport;
 
-	public function __construct(){
-		$this->_objectPost = new Post();
-		$this->_objectComment = new Comment();
-		$this->_objectReport = new Report();
+	public function __construct($model){
+		$this->_objectPost = $model['Post'];
+		$this->_objectComment = $model['Coment'];
+		$this->_objectReport = $model['Report'];
 	}
 
 

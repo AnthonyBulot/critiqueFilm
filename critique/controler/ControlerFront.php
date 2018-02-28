@@ -1,11 +1,12 @@
 <?php
+namespace Critique\controler;
 
 class ControlerFront extends Controler
 {
 	protected $_objectPost;
 
-	public function __construct(){
-		$this->_objectPost = new Post();
+	public function __construct($model){
+		$this->_objectPost = $model['Post'];
 	}
 
 	public function home(){

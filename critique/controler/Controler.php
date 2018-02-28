@@ -1,4 +1,6 @@
 <?php
+namespace Critique\controler;
+
 
 class Controler 
 {	

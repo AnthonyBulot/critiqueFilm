@@ -1,4 +1,6 @@
 <?php
+namespace Critique\error;
+
 class NewException extends ErrorException
 {
   public function __toString()
