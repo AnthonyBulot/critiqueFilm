@@ -16,7 +16,7 @@ while ($comment = $comments->fetch())
 {
 ?>
 	<div class="row commentaire">
-    	<div class="row"><p class="col-lg-12"><strong class="author"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_datefr'] ?></p></div>
+    	<div class="row"><p class="col-lg-12 author"><strong class="author"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_datefr'] ?></p></div>
         <div class="row"><p class="col-lg-12">Note: <?= $comment['note'] ?>/5</p></div>
     	<div class="row"><p class="col-lg-12"><?= nl2br(htmlspecialchars($comment['content'])) ?></p></div>
     	<div class="row"><p class="col-lg-12">A été signaler <em class="report"><?= $comment['report'] ?></em> fois</p></div>
@@ -29,7 +29,7 @@ while ($comment = $comments->fetch())
 
 
 <div class="row">
-<p class="">Page : 
+<p class="pagination">Page : 
 <?php 
 for($i=1; $i<=$numberPages; $i++) //On fait notre boucle
 {

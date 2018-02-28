@@ -13,7 +13,7 @@ class Controler
 		$content = ob_get_clean();
 
 		if (!isset($template)) {
-			throw new NewException("Il manque une information", 400);
+			throw new \NewException("Il manque une information", 400);
 		}
 
 		require('view/' . $template . '.php');

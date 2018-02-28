@@ -19,7 +19,6 @@ $(document).ready( function () {
         }
         // Si le sous-menu est caché, on ferme les autres et on l'affiche :
         else {
-            $(".navigation ul.subMenu").slideUp("normal");
             $(this).next("ul.subMenu").slideDown("normal");
         }
         // On empêche le navigateur de suivre le lien :

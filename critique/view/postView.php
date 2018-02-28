@@ -31,7 +31,7 @@ while ($comment = $comments->fetch())
 
 ?>
 <div class="row commentaire">            
-    <div class="row"><p class="col-lg-12"><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_fr'] ?></p></div>
+    <div class="row"><p class="col-lg-12 author"><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_fr'] ?></p></div>
     <div class="row"><p class="col-lg-12"class="col-lg-12">Note : <?= $comment['note'] ?>/5</p></div>
     <div class="row"><p class="col-lg-12"><?= nl2br(htmlspecialchars($comment['content'])) ?></p></div>
     <div class="row">
@@ -71,4 +71,21 @@ if (isset($_SESSION['name'])){
 } else { ?>
     <p class="col-lg-12 center comInfo">Vous devez être connecté pour mettre des commentaire !</p>
 <?php
-}
+} ?>
+<div class="row">
+<p class="pagination">Page : 
+<?php 
+for($i=1; $i<=$numberPages; $i++) //On fait notre boucle
+{
+     //On va faire notre condition
+     if($i==$currentPage) //Si il s'agit de la page actuelle...
+     {
+         echo ' [ '.$i.' ] '; 
+     }  
+     else //Sinon...
+     {
+          echo ' <a class="lienPage" href="/critique/film/' . $post['id'] . '/page-'.$i.'">'.$i.'</a> ';
+     }
+} ?>
+</p>
+</div>

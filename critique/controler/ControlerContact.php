@@ -16,7 +16,7 @@ class ControlerContact extends Controler
 
 	public function contact(){
 		if (empty($_POST['name']) && empty($_POST['email']) && empty($_POST['content'])) {
-            throw new NewException('Tous les champs n\'ont pas été renseigné', 400);
+            throw new \NewException('Tous les champs n\'ont pas été renseigné', 400);
         }		
 
         $data = [
@@ -26,7 +26,7 @@ class ControlerContact extends Controler
         ];
         $contact = $this->_objectContact->addContact($data);
         if (!$contact){
-        	throw new NewException("Envoi du message non effectuer", 409);
+        	throw new \NewException("Envoi du message non effectuer", 409);
         }
         else {
         	header('Location: /critique/');

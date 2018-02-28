@@ -107,10 +107,43 @@ header{
 .lienMenu{
 	font-size: medium;
 }
-
+.pagination{
+	margin-top: 10px;
+}
+.author{
+	font-size: 1.2em;
+}
 
 @media all and (max-device-width: 480px)
 {
+	p, label, input{
+		font-size: 2.2em;
+	}
+	h2, h3{
+		font-size: 3em;
+	}
+	.author, .comInfo{
+		font-size: 2.5em;
+	}
+	.lienMenu{
+		font-size: 2.5em;
+	}
+	.form-control, input{
+		height: 50px;
+		font-size: 2em;
+	}
+	.imagePost{
+		height: 500px;
+	}
 
+	.imageHome{
+		height: 900px;
+	}
+
+	#right, #left{
+		font-size: 2.2em;
+		position: relative;
+		top: 400px;
+	}
 
 }

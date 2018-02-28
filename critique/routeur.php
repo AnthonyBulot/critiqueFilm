@@ -16,6 +16,7 @@ $routeur = [
 	"#^/critique/film/([0-9]+)/suprimer$#" => "ControlerAdminPost@deletePost",
 	"#^/critique/film/([0-9]+)$#" => "ControlerPost@getPost",
 	"#^/critique/film/([0-9]+)/report$#" => "ControlerPost@getPost",
+	"#^/critique/film/([0-9]+)/page-([0-9]+)$#" => "ControlerPost@getPost",
 	"#^/critique/film/([0-9]+)/ajout-commentaire$#" => "ControlerComment@addComment",
 	"#^/critique/film/([0-9]+)/modification$#" => "ControlerAdminPost@formUpdatePost",
 	"#^/critique/film/([0-9]+)/modification-fiche-film$#" => "ControlerAdminPost@updatePost",

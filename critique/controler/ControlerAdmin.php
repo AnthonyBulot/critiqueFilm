@@ -10,7 +10,7 @@ class ControlerAdmin extends Controler
 	{
 		if (!(isset($_SESSION['admin'])))
 		{
-			throw new NewException('Vous n\'avez pas accès à cette page', 401);
+			throw new \NewException('Vous n\'avez pas accès à cette page', 401);
 		}
 		$this->_objectContact = $model ['Contact'];
 	}

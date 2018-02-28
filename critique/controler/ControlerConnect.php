@@ -5,9 +5,11 @@ namespace Critique\controler;
 class ControlerConnect extends Controler
 {
 	protected $_objectUser;
+	protected $_objectAdministration;
 
 	public function __construct($model){
 		$this->_objectUser = $model['User'];
+		$this->_objectAdministration = $model['Administration'];
 
 	}
 
@@ -17,18 +19,17 @@ class ControlerConnect extends Controler
 
 	public function connectAdmin(){
 		if(empty($_POST['user']) && empty($_POST['password'])){
-			throw new NewException('Tous les champs ne sont pas remplis !', 400);			
+			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
 
-		$controler = new Administration();
-		$dbPassword = $controler->connect($_POST['user']);
+		$dbPassword = $this->_objectAdministration->connect($_POST['user']);
 		if (password_verify($_POST['password'], $dbPassword['password'])) {
 			$_SESSION['admin'] = true;
 			$_SESSION['name'] = $_POST['user'];
     		header('Location: /critique/film/administration');
 		}
 		else{
-			throw new NewException('Mot de passe ou nom d\'utilisateur incorect', 400);
+			throw new \NewException('Mot de passe ou nom d\'utilisateur incorect', 400);
 		}
 	}
 
@@ -43,7 +44,7 @@ class ControlerConnect extends Controler
 	
 	public function inscription(){
 		if(empty($_POST['user']) && empty($_POST['password'])){
-			throw new NewException('Tous les champs ne sont pas remplis !', 400);			
+			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
 		$user = $this->_objectUser->user_exist($_POST['user']);
 
@@ -57,7 +58,7 @@ class ControlerConnect extends Controler
 			];
 			$new = $this->_objectUser->add($data);
 			if (!$new) {
-				throw new NewException('Inscription non effectué', 409);
+				throw new \NewException('Inscription non effectué', 409);
 			}
 			else {
 				$_SESSION['name'] = $_POST['user'];
@@ -69,7 +70,7 @@ class ControlerConnect extends Controler
 
 	public function connect(){
 		if(empty($_POST['user']) && empty($_POST['password'])){
-			throw new NewException('Tous les champs ne sont pas remplis !', 400);			
+			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
 
 		$dbPassword = $this->_objectUser->connect($_POST['user']);
@@ -80,7 +81,7 @@ class ControlerConnect extends Controler
     		header('Location: /critique/film/utilisateur');
 		}
 		else{
-			throw new NewException('Mot de passe ou nom d\'utilisateur incorect', 400);
+			throw new \NewException('Mot de passe ou nom d\'utilisateur incorect', 400);
 		}
 	}
 }

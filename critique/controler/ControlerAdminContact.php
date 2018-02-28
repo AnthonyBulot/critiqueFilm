@@ -10,7 +10,7 @@ class ControlerAdminContact extends Controler
 	{
 		if (!(isset($_SESSION['admin'])))
 		{
-			throw new NewException('Vous n\'avez pas accès à cette page', 401);
+			throw new \NewException('Vous n\'avez pas accès à cette page', 401);
 		}
 		$this->_objectContact = $model['Contact'];
 	}
@@ -26,7 +26,7 @@ class ControlerAdminContact extends Controler
 
 	public function getOneContact(){
 		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
-            throw new NewException('Aucun identifiant de commentaire envoyé', 400);
+            throw new \NewException('Aucun identifiant de commentaire envoyé', 400);
         }
 
         $read = $this->_objectContact->read($_GET['id']);
@@ -40,12 +40,12 @@ class ControlerAdminContact extends Controler
 
 	public function deleteContact(){
 		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
-            throw new NewException('Aucun identifiant de commentaire envoyé', 400);
+            throw new \NewException('Aucun identifiant de commentaire envoyé', 400);
         }
 
         $delete = $this->_objectContact->deleteContact($_GET['id']);
         if (!$delete){
-			throw new NewException('Le message n\'as pas été suprimé', 409);        	
+			throw new \NewException('Le message n\'as pas été suprimé', 409);        	
         }
         else {
         	header('Location: /critique/film/admin-contact');

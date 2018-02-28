@@ -24,7 +24,7 @@ while($data = $posts->fetch()){
 <?php } ?>
 
 <div class="row">
-	<p class="">Page : 
+	<p class="pagination">Page : 
 	<?php 
 	for($i=1; $i<=$numberPages; $i++) //On fait notre boucle
 	{

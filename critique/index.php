@@ -1,12 +1,14 @@
 <?php
 session_start();
+
 try {
+    require('error/NewException.php');
     require('routeur.php');
     require('autoloader/Autoloader.php');
     \Critique\Autoloader::register();
 
-    $instance = \Critique\model\SingletonModel::getInstance();
-    $model = $instance->_model;
+
+    $model = require('model/model.php');
 
     foreach ($routeur as $key => $value) {
         if (preg_match($key, $_SERVER['REQUEST_URI'])){
