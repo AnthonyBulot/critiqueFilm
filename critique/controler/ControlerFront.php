@@ -18,9 +18,6 @@ class ControlerFront extends Controler
 		$this->render('homeView', $data);
 	}
 
-	public function userPage(){
-		$this->render('userView');
-	}
 
 	public function carte(){
 		$this->render('carteView');

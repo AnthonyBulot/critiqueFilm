@@ -7,7 +7,7 @@ p, a, h2, h3, label, ul, li{
 
 a:hover, .lienCategory:hover{
 	text-decoration: none;
-	color: red;
+	color: yellow;
 }
 #category, .cache{
 	display: none;
@@ -32,7 +32,7 @@ a:hover, .lienCategory:hover{
 #map{
 	height: 500px;
 	margin: 2px;
-	border: 2px solid red;
+	border: 2px solid yellow;
 	border-radius: 5px;
 }
 
@@ -51,22 +51,44 @@ a:hover, .lienCategory:hover{
 .fiche{
 	margin-top: 10px;
 	padding-bottom: 5px;
-	border-bottom: 2px solid red;
+	border-bottom: 2px solid yellow;
 }
-
+.logo{
+	width: 200px;
+	height: auto;
+}
+.report{
+	color: red;
+}
+.adminPage{
+	border: 1px solid yellow;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	background-color: yellow;
+	color: black;
+}
+.adminPage:hover{
+	color: black;
+}
 
 header{
 	margin-bottom: 25px;
 }
 footer{
-	border-top: 2px solid red;
+	border-top: 2px solid yellow;
 	padding-top: 10px;
-	margin-top: 35px;
+	margin-top: 50px;
 }
 header{
 	margin-top: 15px;
 }
-
+.lienReplace:focus{
+	color: white;
+}
+.commentUser{
+	text-decoration: underline;
+}
 .navigation {
   margin: 0;
   padding: 0;
@@ -145,5 +167,13 @@ header{
 		position: relative;
 		top: 400px;
 	}
-
+}
+@media screen and (max-width: 1200px)
+{
+	.logo{
+		width: 300px;
+	}
+	.pLogo{
+		text-align: center;
+	}
 }

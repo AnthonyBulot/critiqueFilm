@@ -14,7 +14,7 @@ document.getElementById("mdp").addEventListener("input", function (e) {
     aideMdpElt.style.color = couleurMsg; // Couleur du texte de l'aide
 });
 document.getElementById("mdp").addEventListener("blur", function (e) {
-    var regex = /.*[a-z]+.*[A-Z]+.*[0-9]+/;
+    var regex = /(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)/;
     var validite = "";
     if (!regex.test(e.target.value)) {
         validite = "Le mot de passe doit contenir au minimum une lettre majuscule et un chiffre";

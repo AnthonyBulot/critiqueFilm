@@ -19,22 +19,8 @@ class ControlerPost extends Controler
 
 		$totalPosts = $this->_objectPost->numberPost();
 
-		$numberPages=ceil($totalPosts/10);
-
-		if(isset($_GET['id'])) {
-			$currentPage=intval($_GET['id']);
- 
-     		if($currentPage>$numberPages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
-     		{
-         		$currentPage=$numberPages;
-     		}
-		}
-		else // Sinon
-		{
-     		$currentPage = 1; // La page actuelle est la n°1    
-		}
-
-		$firstEntry=($currentPage - 1) * 10; // On calcul la première entrée à lire
+		$paging = $this->pagesNumbering($totalPosts);
+        extract($paging);
 
 		$posts = $this->_objectPost->listPosts($firstEntry);
 
@@ -65,22 +51,9 @@ class ControlerPost extends Controler
 
         $totalcomment = $this->_objectComment->numberCommentsPost($_GET['id']);
 
-        $numberPages=ceil($totalcomment/5);
+        $paging = $this->pagesNumbering($totalcomment);
+        extract($paging);
 
-        if(isset($_GET['idComment'])) {
-            $currentPage=intval($_GET['idComment']);
- 
-            if($currentPage>$numberPages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
-            {
-                $currentPage=$numberPages;
-            }
-        }
-        else // Sinon
-        {
-            $currentPage = 1; // La page actuelle est la n°1    
-        }
-
-        $firstEntry=($currentPage - 1) * 5; // On calcul la première entrée à lire
         $data = [
             'id' => $_GET['id'],
             'first' => $firstEntry, 
@@ -113,22 +86,8 @@ class ControlerPost extends Controler
 
 		$totalPosts = $this->_objectPost->numberPostCategory($_GET['category']);
 
-		$numberPages=ceil($totalPosts/10);
-
-		if(isset($_GET['id'])) {
-			$currentPage=intval($_GET['id']);
- 
-     		if($currentPage>$numberPages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
-     		{
-         		$currentPage=$numberPages;
-     		}
-		}
-		else // Sinon
-		{
-     		$currentPage = 1; // La page actuelle est la n°1    
-		}
-
-		$firstEntry=($currentPage - 1) * 10; // On calcul la première entrée à lire
+		$paging = $this->pagesNumbering($totalPosts);
+        extract($paging);
 
 		$dataModel = [
     		'category' => $_GET['category'],

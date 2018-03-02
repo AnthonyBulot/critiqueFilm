@@ -46,6 +46,9 @@ class ControlerConnect extends Controler
 		if(empty($_POST['user']) && empty($_POST['password'])){
 			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
+		if (!preg_match('#(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)#', $_POST['password'])) {
+			throw new \NewException('Vous n\'avez pas renseigné une minuscule, une majuscule et un chiffre !', 400);			
+		}
 		$user = $this->_objectUser->user_exist($_POST['user']);
 
 		if($user){

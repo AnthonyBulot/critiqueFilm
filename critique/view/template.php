@@ -5,13 +5,14 @@
         <title>Critique de film</title>
         <link href="css/style/bootstrap.min.css" rel="stylesheet" />
         <link href="css/style/style.css" rel="stylesheet" /> 
+        <link rel="icon" type="image/png" href="css/favicon.png" />
     </head>
         
     <body>
         <div class="container">
             <header>
                 <div class="row">
-                    <p class="col-lg-2 col-md-2 col-sm-12 col-xs-12 "><img src="css/logo.png" alt="logo" /></p>
+                    <p class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pLogo"><img src="css/logo.png" alt="logo" class="logo" /></p>
                     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                         <div class="row">
                             <p class="col-lg-2 col-md-2 col-sm-4 lienMenu"><a href="/critique/film/accueil">Accueil</a></p>

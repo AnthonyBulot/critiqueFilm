@@ -7,7 +7,7 @@ $(document).ready( function () {
     $(".navigation li.toggleSubMenu span").each( function () {
         // On stocke le contenu du span :
         var TexteSpan = $(this).text();
-        $(this).replaceWith('<a href="" title="Afficher le sous-menu">' + TexteSpan + '<\/a>') ;
+        $(this).replaceWith('<a href="" title="Afficher le sous-menu" class="lienReplace">' + TexteSpan + '<\/a>') ;
     } ) ;
 
     // On modifie l'évènement "click" sur les liens dans les items de liste

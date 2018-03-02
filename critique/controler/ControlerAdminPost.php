@@ -11,7 +11,7 @@ class ControlerAdminPost extends Controler
 	{
 		if (!(isset($_SESSION['admin'])))
 		{
-			throw new NewException('Vous n\'avez pas accès à cette page', 401);
+			throw new \NewException('Vous n\'avez pas accès à cette page', 401);
 		}
 		$this->_objectPost = $model['Post']; 
         $this->_objectComment = $model['Comment'];

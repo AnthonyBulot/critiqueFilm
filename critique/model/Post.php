@@ -96,4 +96,10 @@ class Post extends Database{
     	$add->execute(array($data['note'], $data['id']));
     	return $add;			
 	}
+
+	public function getPostUser($postId){
+		$post = $this->_db->prepare('SELECT id, title FROM post WHERE id = ?');
+        $post->execute(array($postId));
+		return $post->fetch();	
+	}
 }
