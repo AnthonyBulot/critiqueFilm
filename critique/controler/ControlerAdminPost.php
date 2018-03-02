@@ -23,7 +23,7 @@ class ControlerAdminPost extends Controler
 	}
 
 	public function savePost(){
-		if(empty($_POST['title']) && empty($_POST['description']) && empty($_POST['actor']) && empty($_POST['category']) && empty($_POST['date_exit'])){
+		if(empty($_POST['title']) || empty($_POST['description']) || empty($_POST['actor']) || empty($_POST['category']) || empty($_POST['date_exit'])){
 			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
 		// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
@@ -100,7 +100,7 @@ class ControlerAdminPost extends Controler
 		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
             throw new \NewException('Aucun identifiant de commentaire envoyé', 400);
         }
-        if(empty($_POST['title']) && empty($_POST['description']) && empty($_POST['actor']) && empty($_POST['category']) && empty($_POST['date_exit'])){
+        if(empty($_POST['title']) || empty($_POST['description']) || empty($_POST['actor']) || empty($_POST['category']) || empty($_POST['date_exit'])){
 			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
 

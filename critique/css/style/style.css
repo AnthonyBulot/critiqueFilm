@@ -88,7 +88,7 @@ header{
 	opacity: 0;
 }
 
-#aideCourriel{
+#aideCourriel, #aide{
 	color: red;
 	font-size: 1.2em;
 }

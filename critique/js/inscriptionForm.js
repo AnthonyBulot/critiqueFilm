@@ -13,11 +13,23 @@ document.getElementById("mdp").addEventListener("input", function (e) {
     aideMdpElt.textContent = "Longueur : " + longueurMdp; // Texte de l'aide
     aideMdpElt.style.color = couleurMsg; // Couleur du texte de l'aide
 });
+document.getElementById("mdp").addEventListener("blur", function (e) {
+    var regex = /.*[a-z]+.*[A-Z]+.*[0-9]+/;
+    var validite = "";
+    if (!regex.test(e.target.value)) {
+        validite = "Le mot de passe doit contenir au minimum une lettre majuscule et un chiffre";
+    }
+    document.getElementById("aide").textContent = validite;
+});
 
 var form = document.getElementById("form");
 form.addEventListener("submit", function (e) {
     var aide = document.getElementById("aideMdp");
+    var majInt = document.getElementById("aide");
     if(aide.textContent == "Longueur : faible"){
+        e.preventDefault();
+    }
+    if (majInt.textContent == "Le mot de passe doit contenir au minimum une lettre majuscule et un chiffre") {
         e.preventDefault();
     }
 });

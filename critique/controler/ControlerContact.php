@@ -15,7 +15,7 @@ class ControlerContact extends Controler
 	}
 
 	public function contact(){
-		if (empty($_POST['name']) && empty($_POST['email']) && empty($_POST['content'])) {
+		if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['content'])) {
             throw new \NewException('Tous les champs n\'ont pas été renseigné', 400);
         }		
 

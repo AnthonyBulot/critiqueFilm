@@ -32,6 +32,7 @@
         		<label for="password">Mot De Passe</label>
         		<input type="password" name=password class="form-control" id="mdp" />
         		<p id="aideMdp"></p>
+        		<p id="aide"></p>
     		</div>
     		<input type="submit" name="submit" value="Inscription" class="btn btn-default"/>
 		</form>

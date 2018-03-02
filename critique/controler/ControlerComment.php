@@ -19,7 +19,7 @@ class ControlerComment extends Controler
 		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
             throw new \NewException('Aucun identifiant de commentaire envoyé', 400);
         }
-        if(empty($_POST['author']) && empty($_POST['content']) && empty($_POST['note'])){
+        if(empty($_POST['author']) || empty($_POST['content']) || empty($_POST['note'])){
 			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
         if(!($_POST['note']	>= 0 && $_POST['note'] <= 100)){
