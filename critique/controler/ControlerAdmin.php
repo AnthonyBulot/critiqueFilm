@@ -6,13 +6,13 @@ class ControlerAdmin extends Controler
 {
 	protected $_objectContact;
 
-	public function __construct($model)
+	public function __construct()
 	{
 		if (!(isset($_SESSION['admin'])))
 		{
 			throw new \NewException('Vous n\'avez pas accès à cette page', 401);
 		}
-		$this->_objectContact = $model ['Contact'];
+		$this->_objectContact = new \Critique\model\Contact();
 	}
 	
 	public function admin(){

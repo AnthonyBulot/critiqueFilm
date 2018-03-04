@@ -8,10 +8,10 @@ class ControlerComment extends Controler
 	protected $_objectComment;
 	protected $_objectReport;
 
-	public function __construct($model){
-		$this->_objectPost = $model['Post'];
-		$this->_objectComment = $model['Comment'];
-		$this->_objectReport = $model['Report'];
+	public function __construct(){
+		$this->_objectPost = new \Critique\model\Post();
+		$this->_objectComment = new \Critique\model\Comment();
+		$this->_objectReport = new \Critique\model\Report();
 	}
 
 

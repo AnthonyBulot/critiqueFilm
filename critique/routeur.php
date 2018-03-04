@@ -24,7 +24,7 @@ $routeur = [
 	"#^/critique/film/recherche-film$#" => "ControlerPost@search",
 	"#^/critique/film/contact$#" => "ControlerContact@formContact",
 	"#^/critique/film/message-contact$#" => "ControlerContact@contact",
-	"#^/critique/film/utilisateur#" => "ControlerUser@userPage",
+	"#^/critique/film/utilisateur$#" => "ControlerUser@userPage",
 	"#^/critique/film/admin-contact$#" => "ControlerAdminContact@getContact",
 	"#^/critique/film/contact/([a-zA-Z0-9]+)$#" => "ControlerAdminContact@getOneContact",
 	"#^/critique/film/contact/delete/([0-9]+)$#" => "ControlerAdminContact@deleteContact",
@@ -34,6 +34,7 @@ $routeur = [
 	"#^/critique/film/commentaire-signale#" => "ControlerAdminComment@listReport",
 	"#^/critique/film/suprimer/signalement/([0-9]+)$#" => "ControlerAdminComment@deleteReport",
 	"#^/critique/film/suprimer/commentaire/([0-9]+)$#" => "ControlerAdminComment@deleteComment",
-	"#^/critique/film/carte-cinema-paris$#" => "ControlerFront@carte"
+	"#^/critique/film/carte-cinema-paris$#" => "ControlerFront@carte",
+	"#^/critique/film/utilisateur/commentaire$#" => "ControlerUser@userComment"
 
 ];

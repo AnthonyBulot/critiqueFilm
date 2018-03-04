@@ -7,14 +7,11 @@ try {
     require('autoloader/Autoloader.php');
     \Critique\Autoloader::register();
 
-
-    $model = require('model/model.php');
-
     foreach ($routeur as $key => $value) {
         if (preg_match($key, $_SERVER['REQUEST_URI'])){
             $rout = explode('@', $value);
             $class = '\Critique\controler\\' . $rout[0];
-            $controler = new $class($model);
+            $controler = new $class();
             $method = $rout[1];
             $controler->$method();
         }

@@ -17,7 +17,7 @@ class Report extends Database
 	}
 
 	public function listReport($first) {
-        $req = $this->_db->prepare('SELECT id, author, content, note, DATE_FORMAT(date_comment, \'%d/%m/%Y à %H:%i:%s\') AS comment_datefr, report FROM comment ORDER BY report DESC LIMIT :first , 10');
+        $req = $this->_db->prepare('SELECT id, author, content, note, post_id, DATE_FORMAT(date_comment, \'%d/%m/%Y à %H:%i:%s\') AS comment_datefr, report FROM comment ORDER BY report DESC LIMIT :first , 10');
         $req->bindParam(':first', $first, \PDO::PARAM_INT);
         $req->execute();
         return $req;

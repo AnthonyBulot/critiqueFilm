@@ -7,15 +7,18 @@ class ControlerUser extends Controler
 	protected $_objectComment;
 	protected $_objectPost;
 
-	public function __construct($model){
+	public function __construct(){
 		if (!isset($_SESSION['user'])) {
 			throw new \NewException('Vous n\'avez pas accès à cette page', 401);
 		}
-		$this->_objectComment = $model['Comment'];
-		$this->_objectPost = $model['Post'];
+		$this->_objectComment = new \Critique\model\Comment();
+		$this->_objectPost = new \Critique\model\Post();
 	}
+    public function userPage(){
+        $this->render('userView');
+    }
 
-	public function userPage(){
+	public function userComment(){
 		if (isset($_GET['id']) && !($_GET['id'] > 0)) {
             throw new \NewException('Aucun identifiant de commentaire envoyé', 400);
         }
@@ -48,6 +51,6 @@ class ControlerUser extends Controler
     		'currentPage' => $currentPage,
     		'movie' => $movie
         ];
-		$this->render('userView', $data);
+		$this->render('userCommentView', $data);
 	}
 }

@@ -7,16 +7,18 @@ class ControlerAdminComment extends Controler
 	protected $_objectContact;
 	protected $_objectReport;
 	protected $_objectComment;
+	protected $_objectPost;
 
-	public function __construct($model)
+	public function __construct()
 	{
 		if (!(isset($_SESSION['admin'])))
 		{
 			throw new \NewException('Vous n\'avez pas accès à cette page', 401);
 		}
-		$this->_objectPost = $model['Post'];
-		$this->_objectReport = $model['Report'];
-		$this->_objectComment = $model['Comment'];
+		$this->_objectPost = new \Critique\model\Post();
+		$this->_objectReport = new \Critique\model\Report();
+		$this->_objectComment = new \Critique\model\Comment();
+		$this->_objectPost = new \Critique\model\Post();
 	}
 	
 
@@ -31,10 +33,24 @@ class ControlerAdminComment extends Controler
         extract($paging);
 
 		$comments = $this->_objectReport->listReport($firstEntry);
+
+		$movie = [];
+        while ($tabMovie = $comments->fetch()) {
+        	$post = $this->_objectPost->getPostUser($tabMovie['post_id']);
+
+        	$tabMovie = [
+        		'title' => $post['title'],
+        		'post_id' => $post['id']
+        	];
+        	$movie += [ $post['id'] => $tabMovie ];
+        }
+
+        $comments = $this->_objectReport->listReport($firstEntry);
 		$data = [
     		'comments' => $comments,
     		'numberPages' => $numberPages,
-    		'currentPage' => $currentPage
+    		'currentPage' => $currentPage,
+    		'movie' => $movie
     	];
 		$this->render('listCommentsView', $data);
 	}

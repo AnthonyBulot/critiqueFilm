@@ -7,9 +7,9 @@ class ControlerPost extends Controler
 	protected $_objectPost;
 	protected $_objectComment;
 
-	public function __construct($model){
-		$this->_objectPost = $model['Post'];
-		$this->_objectComment = $model['Comment'];
+	public function __construct(){
+		$this->_objectPost = new \Critique\model\Post();
+		$this->_objectComment = new \Critique\model\Comment();
 	}
 
 	public function lastExit(){

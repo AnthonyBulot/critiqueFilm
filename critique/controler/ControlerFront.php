@@ -5,8 +5,8 @@ class ControlerFront extends Controler
 {
 	protected $_objectPost;
 
-	public function __construct($model){
-		$this->_objectPost = $model['Post'];
+	public function __construct(){
+		$this->_objectPost = new \Critique\model\Post();
 	}
 
 	public function home(){

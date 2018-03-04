@@ -7,9 +7,9 @@ class ControlerConnect extends Controler
 	protected $_objectUser;
 	protected $_objectAdministration;
 
-	public function __construct($model){
-		$this->_objectUser = $model['User'];
-		$this->_objectAdministration = $model['Administration'];
+	public function __construct(){
+		$this->_objectUser = new \Critique\model\User();
+		$this->_objectAdministration = new \Critique\model\Administration();
 
 	}
 
