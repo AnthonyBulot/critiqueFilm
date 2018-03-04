@@ -4,8 +4,8 @@ namespace Critique\model;
 
 class User extends Database {
 	public function add($data){
-		$req = $this->_db->prepare('INSERT INTO user(name_user, password) VALUES(?, ?)');
-		$bool = $req->execute(array($data['user'], $data['password']));
+		$req = $this->_db->prepare('INSERT INTO user(name_user, password, email) VALUES(?, ?, ?)');
+		$bool = $req->execute(array($data['user'], $data['password'], $data['email']));
 		return $bool;
 	}
 

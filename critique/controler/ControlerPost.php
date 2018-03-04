@@ -101,6 +101,7 @@ class ControlerPost extends Controler
     			'posts' => $posts,
     			'numberPages' => $numberPages,
     			'currentPage' => $currentPage,
+                'category' => $_GET['category']
     		];
 			$this->render('movieCategoryView', $data);		
 		} else {

@@ -110,7 +110,7 @@ header{
 	opacity: 0;
 }
 
-#aideCourriel, #aide{
+#aideCourriel, #aide, #aideEmail, #MdpIdentique{
 	color: red;
 	font-size: 1.2em;
 }

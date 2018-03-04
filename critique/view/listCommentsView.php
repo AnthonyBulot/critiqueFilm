@@ -40,7 +40,7 @@ for($i=1; $i<=$numberPages; $i++) //On fait notre boucle
      }  
      else //Sinon...
      {
-          echo ' <a class="lienPage" href="/critique/film/'.$i.'">'.$i.'</a> ';
+          echo ' <a class="lienPage" href="/critique/film/commentaire-signale/'.$i.'">'.$i.'</a> ';
      }
 } ?>
 </p>

@@ -8,6 +8,7 @@ RewriteRule  film/([a-zA-Z0-9\-_\/]+)/delete-([0-9]+)$                       ind
 RewriteRule  film/([0-9]+)/report                                            index.php?report=true&id=$1
 RewriteRule  film/([0-9]+)/page-([0-9]+)                                     index.php?id=$1&idComment=$2
 RewriteRule  film/category/([a-zA-Z0-9\-_]+)$                                index.php?category=$1
+RewriteRule  film/category/([a-zA-Z0-9\-_]+)/([0-9]+)$                       index.php?category=$1&id=$2
 RewriteRule  film/([0-9]+)/([a-zA-Z0-9\-_]+)$                                index.php?id=$1
 RewriteRule  film/([0-9]+)$                                                  index.php?id=$1
 RewriteRule  film/formulaire-connexion/erreur								 index.php?exist=true

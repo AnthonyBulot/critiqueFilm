@@ -49,6 +49,13 @@ class ControlerConnect extends Controler
 		if (!preg_match('#(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)#', $_POST['password'])) {
 			throw new \NewException('Vous n\'avez pas renseigné une minuscule, une majuscule et un chiffre !', 400);			
 		}
+		if (!($_POST['password'] == $_POST['password2'])) {
+			throw new \NewException('Les mots de passe ne sont pas identiques', 400);
+		}
+		if (!preg_match('#[A-Za-z0-9_]+@[a-zA-Z]+\.[a-zA-Z]+#', $_POST['email'])) {
+			throw new \NewException('Adresse mail invalide', 400);
+		}
+
 		$user = $this->_objectUser->user_exist($_POST['user']);
 
 		if($user){
@@ -58,6 +65,7 @@ class ControlerConnect extends Controler
 			$data = [
 				"user" => $_POST['user'],
 				"password" => $password,
+				"email" => $_POST['email'],
 			];
 			$new = $this->_objectUser->add($data);
 			if (!$new) {

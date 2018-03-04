@@ -34,7 +34,7 @@ while($data = $posts->fetch()){
      	}	
      	else //Sinon...
      	{
-          	echo ' <a class="lienPage" href="/critique/film/'.$i.'">'.$i.'</a> ';
+          	echo ' <a class="lienPage" href="/critique/film/dernier-film/'.$i.'">'.$i.'</a> ';
      	}
 	} ?>
 	</p>
