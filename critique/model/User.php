@@ -20,4 +20,22 @@ class User extends Database {
 		$req->execute(array($user));
 		return $req->fetch();
 	}
+
+	public function getEmail($user){
+		$req = $this->_db->prepare('SELECT email FROM user WHERE name_user = ?');
+		$req->execute(array($user));
+		return $req->fetch();		
+	}
+
+	public function email_update($data){
+		$add = $this->_db->prepare('UPDATE user SET email = ? WHERE name_user = ?');
+    	$add->execute(array($data['email'], $data['name']));
+    	return $add;		
+	}
+
+	public function password_update($data){
+		$add = $this->_db->prepare('UPDATE user SET password = ? WHERE name_user = ?');
+    	$add->execute(array($data['password'], $data['name']));
+    	return $add;	
+	}
 }

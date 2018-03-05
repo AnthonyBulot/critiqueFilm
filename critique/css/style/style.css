@@ -110,12 +110,15 @@ header{
 	opacity: 0;
 }
 
-#aideCourriel, #aide, #aideEmail, #MdpIdentique{
+#aideCourriel, #aide, #aideEmail, #MdpIdentique, #newMdpIdentique, #aide2, #aideEmailPast, #aideEmailNew{
 	color: red;
 	font-size: 1.2em;
 }
 #note{
 	opacity: 0;
+}
+.user{
+	font-size: 1.2em;
 }
 
 .commentaire{

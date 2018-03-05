@@ -6,6 +6,7 @@ class ControlerUser extends Controler
 {
 	protected $_objectComment;
 	protected $_objectPost;
+    protected $_objectUser;
 
 	public function __construct(){
 		if (!isset($_SESSION['user'])) {
@@ -13,9 +14,16 @@ class ControlerUser extends Controler
 		}
 		$this->_objectComment = new \Critique\model\Comment();
 		$this->_objectPost = new \Critique\model\Post();
+        $this->_objectUser = new \Critique\model\User();
 	}
     public function userPage(){
-        $this->render('userView');
+        $verifyEmail = $this->_objectUser->getEmail($_SESSION['name']); 
+
+
+        $data = [
+            'email' => $verifyEmail['email']
+        ];
+        $this->render('userView', $data);
     }
 
 	public function userComment(){
@@ -53,4 +61,67 @@ class ControlerUser extends Controler
         ];
 		$this->render('userCommentView', $data);
 	}
+
+    public function formEmail(){
+        $this->render('formEmailView');
+    }
+
+    public function updateEmail(){
+        if(!preg_match('#[A-Za-z0-9_]+@[a-zA-Z]+\.[a-zA-Z]+#', $_POST['email'])) {
+            throw new \NewException('Adresse mail invalide', 400);
+        }
+        if(!preg_match('#[A-Za-z0-9_]+@[a-zA-Z]+\.[a-zA-Z]+#', $_POST['email2'])) {
+            throw new \NewException('Adresse mail invalide', 400);
+        }
+
+        $verifyEmail = $this->_objectUser->getEmail($_SESSION['name']);  
+        if (!($_POST['email'] == $verifyEmail['email'])) {
+            throw new \NewException('Adresse mail invalide', 400);
+        } 
+
+        $data = [
+            'email' => $_POST['email2'],
+            'name' => $_SESSION['name'],
+        ];
+        $update =$this->_objectUser->email_update($data);
+        if(!$update) {
+            throw new \NewException('Modification de l\'email non effectué', 409);
+        }
+        else {
+            header('Location: /critique/film/utilisateur');
+        }
+    }
+
+    public function formMotdePasse(){
+        $this->render('formPasswordView');
+    }
+
+    public function updatePassword(){
+        if (!preg_match('#(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)#', $_POST['passwordNew'])) {
+            throw new \NewException('Vous n\'avez pas renseigné une minuscule, une majuscule et un chiffre !', 400);            
+        }
+        if (!($_POST['passwordNew'] == $_POST['passwordNew2'])) {
+            throw new \NewException('Les mots de passe ne sont pas identiques', 400);
+        }
+
+        $dbPassword = $this->_objectUser->connect($_SESSION['name']);
+
+        if (!password_verify($_POST['password'], $dbPassword['password'])) {
+            throw new \NewException('Mot de passe invalide', 400);
+        }
+
+        $password = password_hash($_POST['passwordNew'], PASSWORD_DEFAULT);
+
+        $data = [
+            'password' => $password,
+            'name' => $_SESSION['name']
+        ];
+        $update = $this->_objectUser->password_update($data);
+        if(!$update) {
+            throw new \NewException('Modification du mot de passe non effectué', 409);
+        }
+        else {
+            header('Location: /critique/film/utilisateur');
+        }
+    }   
 }

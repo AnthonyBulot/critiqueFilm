@@ -66,7 +66,11 @@ class Routeur{
 			"/critique/film/suprimer/signalement/([0-9]+)" => "ControlerAdminComment@deleteReport",
 			"/critique/film/suprimer/commentaire/([0-9]+)" => "ControlerAdminComment@deleteComment",
 			"/critique/film/carte-cinema-paris" => "ControlerFront@carte",
-			"/critique/film/utilisateur/commentaire" => "ControlerUser@userComment"
+			"/critique/film/utilisateur/commentaire" => "ControlerUser@userComment",
+			"/critique/film/modifier/email" => "ControlerUser@formEmail",
+			"/critique/film/modifier/email/reussi" => "ControlerUser@updateEmail",
+			"/critique/film/modifier/mot-de-passe" => "ControlerUser@formMotdePasse",
+			"/critique/film/modifier/mot-de-passe/reussi" => "ControlerUser@updatePassword",
 		];
 	}
 }
