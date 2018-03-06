@@ -22,8 +22,15 @@
 		<input type="text" name="actor" class="form-control"/>
 	</div>
 	<div class="form-group">
-		<label for="poster">Affiche du film</label>
-		<input type="file" name="poster" />
+		<label>Affiche du film :</label>
+		<div class="input-group">
+        	<label class="input-group-btn">
+            	<span class="btn btn-primary">
+                	Parcourir <input type="file" name="poster" style="display: none;" multiple>
+            	</span>
+        	</label>
+        	<input type="text" class="form-control" readonly>
+    	</div>
 	</div>
 	<div class="form-group">
 		<label for="category">Catégorie : </label> 
@@ -49,3 +56,4 @@
 	<input type="submit" name="submit" value="Ajoutez" class="btn btn-default" />
 </form>
 </div>
+<script src="js/inputFile.js"></script>

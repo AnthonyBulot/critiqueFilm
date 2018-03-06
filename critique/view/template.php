@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>Critique de film</title>
         <link href="css/style/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/style/style.css" rel="stylesheet" /> 
+        <link href="css/style/style.css" rel="stylesheet" />
         <link rel="icon" type="image/png" href="css/favicon.png" />
     </head>
         

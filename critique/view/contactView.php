@@ -7,14 +7,27 @@
 	<label for="noRead" class="form-check-label">Message non lus seulement</label>
 </div>
 
+<table id="example" class="table" cellspacing="0">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Date</th>
+            <th scope="col">Message</th>
+        </tr>
+    </thead>
+    <tbody>
 <?php
 while($data = $contact->fetch()){ ?>
-	<div class="row messages">
-		<p class="col-lg-3"><?= htmlspecialchars($data['name_user']) ?> le <?= $data['date_fr'] ?></p>
-		<p class="col-lg-7"><?= htmlspecialchars(substr($data['content'],0,50)) ?>...</p>
-		<p class="col-lg-2"><a href="/critique/film/contact/<?= $data['id']?>">Voir plus</a></p>
-		<p class="read"><?= $data['read_message'] ?></p>
-	</div>
+		<tr class="messages">
+			<th scope="col"><?= htmlspecialchars($data['name_user']) ?></th> 
+			<th scope="col"><?= $data['date_fr'] ?></th>
+			<th scope="col"><?= htmlspecialchars(substr($data['content'],0,50)) ?>...</th>
+			<th scope="col"><a href="/critique/film/contact/<?= $data['id']?>">Voir plus</a></th>
+			<th scope="col"><a href="/critique/film/contact/delete/<?= $data['id'] ?>">Suprimer</a></th>
+			<th scope="col" class="read"><?= $data['read_message'] ?></th>
+		</tr>
 <?php } ?>
-
+	</tbody>
+</table>
 <script src="js/message.js"></script>
+

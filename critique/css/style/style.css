@@ -9,6 +9,10 @@ a:hover, .lienCategory:hover{
 	text-decoration: none;
 	color: yellow;
 }
+th{
+	color: white;
+}
+
 #category, .cache{
 	display: none;
 }
