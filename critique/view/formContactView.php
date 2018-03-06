@@ -8,7 +8,7 @@
 		<div class="form-group">
 			<label for="email">Adresse Mail : </label>
 			<input type="email" name="email" class="form-control" id="courriel" />
-			<p id="aideCourriel"></p>
+			<p id="aideCourriel" class="noSubmit"></p>
 		</div>
 		<div class="form-group">
 			<label for="content">Message : </label>
@@ -18,4 +18,7 @@
 	</form>
 </div>
 
-<script src="js/form.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/formVerify.js"></script>
+<script src="js/formContact.js"></script>

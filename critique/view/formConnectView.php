@@ -32,21 +32,23 @@
         		<label for="password">Mot De Passe</label>
         		<input type="password" name="password" class="form-control" id="mdp" />
         		<p id="aideMdp"></p>
-        		<p id="aide"></p>
+        		<p id="aide" class="noSubmit"></p>
     		</div>
     		<div class="form-group">
         		<label for="password">Répété le Mot De Passe</label>
         		<input type="password" name="password2" class="form-control" id="mdp2" />
-        		<p id="MdpIdentique"></p>
+        		<p id="MdpIdentique" class="noSubmit"></p>
     		</div>
     		   <div class="form-group">
         		<label for="email">Email</label>
         		<input type="email" name="email" class="form-control" id="email" />
-        		<p id="aideEmail"></p>
+        		<p id="aideEmail" class="noSubmit"></p>
     		</div>
     		<input type="submit" name="submit" value="Inscription" class="btn btn-default"/>
 		</form>
 	</div>
 </div>
 
-<script src="js/inscriptionForm.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/formVerify.js"></script>
+<script src="js/formConnect.js"></script>

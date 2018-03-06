@@ -20,5 +20,6 @@
     	<input class="btn btn-default" type="submit" name="submit" value="Connexion"/>
 	</form>
 </div>
-
+<script src="js/jquery.js"></script>
+<script src="js/formVerify.js"></script>
 <script src="js/updatePassword.js"></script>

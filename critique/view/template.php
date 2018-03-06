@@ -71,8 +71,8 @@
                     <p class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lienMenu"><a href="/critique/film/dernier-film">Films</a></p>
                     <p class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lienMenu"><a href="/critique/film/contact">Contact</a></p> 
                 <?php if (isset($_SESSION['admin'])): ?>                
-                    <p class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lienMenu"><a href="/critique/film/administration" class="lienMenu">Page Administration</a></p>
-                    <p class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lienMenu"><a href="/critique/film/deconnect" class="lienMenu">Déconnexion</a></p>
+                    <p class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lienMenu"><a href="/critique/film/administration">Page Administration</a></p>
+                    <p class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lienMenu"><a href="/critique/film/deconnect">Déconnexion</a></p>
                     <?php else: ?>              
                     <p class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lienMenu"><a href="/critique/film/formulaire-admin">Administration</a></p>
                     <?php                                   

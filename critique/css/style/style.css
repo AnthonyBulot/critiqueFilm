@@ -107,7 +107,7 @@ header{
 }
 
 .read{
-	opacity: 0;
+	display: none;
 }
 
 #aideCourriel, #aide, #aideEmail, #MdpIdentique, #newMdpIdentique, #aide2, #aideEmailPast, #aideEmailNew{
