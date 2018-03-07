@@ -8,7 +8,10 @@ class ControlerComment extends Controler
 	protected $_objectComment;
 	protected $_objectReport;
 
-	public function __construct(){
+	public function __construct($token){
+        if ($_SESSION['token'] != $token) {
+            throw new \NewException('Erreur de vérification');
+        }
 		$this->_objectPost = new \Critique\model\Post();
 		$this->_objectComment = new \Critique\model\Comment();
 		$this->_objectReport = new \Critique\model\Report();

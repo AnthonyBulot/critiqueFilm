@@ -6,7 +6,10 @@ class ControlerContact extends Controler
 {
 	protected $_objectContact;
 
-	public function __construct(){
+	public function __construct($token){
+        if ($_SESSION['token'] != $token) {
+            throw new \NewException('Erreur de vérification');
+        }
 		$this->_objectContact = new \Critique\model\Contact();
 	}
 

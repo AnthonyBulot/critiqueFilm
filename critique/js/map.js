@@ -45,8 +45,11 @@ var map = {
 
     		detail.textContent = "Détails de votre cinéma !";
 			nom.textContent = "Nom du cinéma : " + this.nom;
-			adresse.textContent = "Adresse : " + this.adresse;
-			arrondissement.textContent = this.arrondissement;
+
+			if (typeof this.adresse != "undefined") {
+				adresse.textContent = "Adresse : " + this.adresse;
+				arrondissement.textContent = this.arrondissement;
+			}
 
 			reserv.style.border = "black 3px solid";
 			reserv.style.opacity = "1";

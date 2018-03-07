@@ -7,7 +7,10 @@ class ControlerConnect extends Controler
 	protected $_objectUser;
 	protected $_objectAdministration;
 
-	public function __construct(){
+	public function __construct($token){
+		if ($_SESSION['token'] != $token) {
+			throw new \NewException('Erreur de vérification');
+		}
 		$this->_objectUser = new \Critique\model\User();
 		$this->_objectAdministration = new \Critique\model\Administration();
 

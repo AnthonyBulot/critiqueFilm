@@ -6,8 +6,13 @@ try {
     require('autoloader/Autoloader.php');
     \Critique\Autoloader::register();
 
+    $instanceToken = \Critique\token\Token::getInstance();
+    $token = $instanceToken->token;
+    $_SESSION['token'] = $token;
+
+
     $routeur = new \Critique\routeur\Routeur();
-    $routeur->initRouteur();
+    $routeur->initRouteur($token);
 } 
 catch(NewException $e) {
     ob_start();

@@ -4,12 +4,12 @@ namespace Critique\routeur;
 class Routeur{
 	protected $_routeur;
 
-	public function initRouteur(){
+	public function initRouteur($token){
 		$this->getRouteur();
 		foreach ($this->_routeur as $key => $value) {
 			$keyRouteur = '#^'.$key.'$#';
         	if (preg_match($keyRouteur, $_SERVER['REQUEST_URI'])){
-        	    $pageExist = $this->getControler($value);
+        	    $pageExist = $this->getControler($value, $token);
         	}
     	}
     	if(!isset($pageExist)){
@@ -17,11 +17,11 @@ class Routeur{
     	}
 	}
 
-	private function getControler($value){
+	private function getControler($value, $token){
 		$rout = explode('@', $value);
         $class = '\Critique\controler\\' . $rout[0];
         $method = $rout[1];
-        $controler = new $class();
+        $controler = new $class($token);
         $controler->$method();
         return true;
 	}

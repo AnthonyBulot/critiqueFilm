@@ -30,4 +30,11 @@ while($data = $contact->fetch()){ ?>
 	</tbody>
 </table>
 <script src="js/message.js"></script>
-
+<script src="js/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+    	$('#example').DataTable();
+	} );
+</script>
