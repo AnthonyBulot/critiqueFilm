@@ -1,34 +1,38 @@
 <?php
 namespace Critique\token;
 
-//Singleton
+//Faille CSRF
 class Token
 {
 	public $token;
-	private static $hours;
-	private static $_instance;
+	public $time;
+	public static $hours;
 
-	public static function getInstance(){
-		if (is_null(self::$_instance)){
+	public static function getInstance($createToken){
+		if (!isset($_SESSION['instanceToken'])){
+			var_dump('exist');
 			self::$hours = time();
-			self::$_instance = new Token();
+			$_SESSION['instanceToken'] = serialize(new Token());
+			var_dump($_SESSION['instanceToken']);
 		}
 		$time = time();
-		if (self::$hours + 600 <= $time) {
+		if (($createToken + 600) <= $time) {
+			var_dump($time);
+			var_dump('heure');
 			self::$hours = time();
-			self::$_instance = new Token();		
+			$_SESSION['instanceToken'] = serialize(new Token());
+			var_dump($_SESSION['instanceToken']);		
 		}
-		return self::$_instance;
+		return $_SESSION['instanceToken'];
 	}
 
 	private function __construct(){
 		$this->token = $this->getToken();
+		$this->time = self::$hours;
 	}
 
 
 	private function getToken() {
-		$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
-
-		return $token;
+		return $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 	}
 }

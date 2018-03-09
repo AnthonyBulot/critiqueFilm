@@ -6,11 +6,11 @@ try {
     require('autoloader/Autoloader.php');
     \Critique\Autoloader::register();
 
-    $instanceToken = \Critique\token\Token::getInstance();
-    $token = $instanceToken->token;
-    $_SESSION['token'] = $token;
+    //Faille CSRF
+   	$object = new \Critique\token\GetToken();
+   	$token = $object->getToken();
 
-
+    //Routeur
     $routeur = new \Critique\routeur\Routeur();
     $routeur->initRouteur($token);
 } 
