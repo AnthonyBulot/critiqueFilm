@@ -8,20 +8,11 @@ class Token
 	public $time;
 	public static $hours;
 
-	public static function getInstance($createToken){
-		if (!isset($_SESSION['instanceToken'])){
-			var_dump('exist');
-			self::$hours = time();
-			$_SESSION['instanceToken'] = serialize(new Token());
-			var_dump($_SESSION['instanceToken']);
-		}
+	public static function getInstance($createToken = null){
 		$time = time();
-		if (($createToken + 600) <= $time) {
-			var_dump($time);
-			var_dump('heure');
+		if ($createToken + 600 <= $time) {
 			self::$hours = time();
 			$_SESSION['instanceToken'] = serialize(new Token());
-			var_dump($_SESSION['instanceToken']);		
 		}
 		return $_SESSION['instanceToken'];
 	}

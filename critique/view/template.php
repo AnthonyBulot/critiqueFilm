@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>Critique de film</title>
         <link href="css/style/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
         <link href="css/style/style.css" rel="stylesheet" />
         <link rel="icon" type="image/png" href="css/favicon.png" />
     </head>

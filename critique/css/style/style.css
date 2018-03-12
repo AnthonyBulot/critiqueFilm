@@ -9,8 +9,8 @@ a:hover, .lienCategory:hover{
 	text-decoration: none;
 	color: yellow;
 }
-th{
-	color: white;
+.tdata{
+	color: black;
 }
 
 #category, .cache{
