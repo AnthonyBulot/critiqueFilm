@@ -51,4 +51,13 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/formVerify.js"></script>
-<script src="js/formConnect.js"></script>
+<script>
+	$(document).ready(function(){
+		var verify = Object.create(formVerify);
+		verify.passwordLength("mdp", "aideMdp");
+		verify.passwordCorrect("mdp", "aide");
+		verify.passwordEqual("mdp", "mdp2", "MdpIdentique");
+		verify.email("email", "aideEmail");
+		verify.submit("form", "aideMdp", "noSubmit");
+	});
+</script>

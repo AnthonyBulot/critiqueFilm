@@ -17,4 +17,11 @@
 </div>
 <script src="js/jquery.js"></script>
 <script src="js/formVerify.js"></script>
-<script src="js/updateEmail.js"></script>
+<script>
+	$(document).ready(function(){
+    	var verify = Object.create(formVerify);
+    	verify.email("emailPast", "aideEmailPast");
+    	verify.email("emailNew", "aideEmailNew");
+    	verify.submit("formEmail", null, "noSubmit");
+	});
+</script>

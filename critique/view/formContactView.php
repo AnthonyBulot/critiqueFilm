@@ -21,4 +21,10 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/formVerify.js"></script>
-<script src="js/formContact.js"></script>
+<script>
+	$(document).ready(function(){
+    	var verify = Object.create(formVerify);
+    	verify.email("courriel", "aideCourriel");
+    	verify.submit("form", null, "noSubmit");
+	});
+</script>
