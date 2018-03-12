@@ -1,10 +1,18 @@
 body{
 	background-color: black;
 }
-p, a, h2, h3, label, ul, li{
+p, a, h2, h3, thead, label ,ul, li, #table_id_info{
 	color: white;
 }
-
+select{
+	color: black;
+}
+#table_id_previous, #table_id_next{
+	color: white !important;
+}
+input[type=search]{
+	color: black;
+}
 a:hover, .lienCategory:hover{
 	text-decoration: none;
 	color: yellow;

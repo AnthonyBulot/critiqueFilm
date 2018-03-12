@@ -10,7 +10,7 @@ var message = {
 		var read = $(".read");
 		for (var i = 0; i < messages.length; i++) {
 			if (read[i].textContent == 0){
-				messages[i].style.backgroundColor = "rgba(255, 255, 77, 0.2)";
+				messages[i].style.backgroundColor = "rgba(255, 255, 0, 0.8)";
 			}
 		}
 	},
@@ -21,7 +21,7 @@ var message = {
 			var messages = $(".messages");
 			if (checkbox.checked == true){
 				for (var i = 0; i < messages.length; i++) {
-					if (messages[i].style.backgroundColor != "rgba(255, 255, 77, 0.2)"){
+					if (messages[i].style.backgroundColor != "rgba(255, 255, 0, 0.8)"){
 						messages[i].style.display = "none";
 					}
 				}
