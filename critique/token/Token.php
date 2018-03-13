@@ -24,6 +24,6 @@ class Token
 
 
 	private function getToken() {
-		return $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+		return $token = uniqid('', true);
 	}
 }

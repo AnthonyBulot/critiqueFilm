@@ -42,7 +42,7 @@ class ControlerConnect extends Controler
 
 	public function deconnect(){
 		session_destroy();
-		header('Location: /critique/');
+		header('Location: /critique/film/accueil');
 	}
 	
 	public function inscription(){

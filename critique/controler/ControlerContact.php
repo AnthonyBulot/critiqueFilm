@@ -32,7 +32,7 @@ class ControlerContact extends Controler
         	throw new \NewException("Envoi du message non effectuer", 409);
         }
         else {
-        	header('Location: /critique/');
+        	header('Location: /critique/film/accueil');
         }
 	}
 }	

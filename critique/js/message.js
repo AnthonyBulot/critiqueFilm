@@ -1,6 +1,7 @@
 var message = {
 
 	init : function(){
+		this.read();
 		this.verify();
 		this.noRead();
 	},
@@ -9,7 +10,7 @@ var message = {
 		var messages = $(".messages");
 		var read = $(".read");
 		for (var i = 0; i < messages.length; i++) {
-			if (read[i].textContent == 0){
+			if (read[i].textContent == "Non lu"){
 				messages[i].style.backgroundColor = "rgba(255, 255, 0, 0.8)";
 			}
 		}
@@ -32,6 +33,20 @@ var message = {
 				}
 			}
 		});
+	},
+
+	read : function(){
+		var messages = $(".messages");
+		var read = $(".read");
+		for (var i = 0; i < messages.length; i++) {
+			if (read[i].textContent == 0){
+				read[i].textContent = "Non lu";
+			}
+			else {
+				read[i].textContent = "Lu";
+			}
+		}
+
 	}
 }
 

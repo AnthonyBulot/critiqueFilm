@@ -65,7 +65,7 @@ class ControlerAdminPost extends Controler
 			throw new \NewException('La fiche du film n\'a pas pus être enregistré !', 409);
 		}
 		else {
-			header('Location: /critique/');
+			header('Location: /critique/film/accueil');
 		}
 	}	
 
@@ -82,7 +82,7 @@ class ControlerAdminPost extends Controler
 			throw new \NewException('La fiche n\'as pas été suprimé', 409);        	
         }
         else {
-        	header('Location: /critique/');
+        	header('Location: /critique/film/accueil');
         }		
 	}
 

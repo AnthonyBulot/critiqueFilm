@@ -15,6 +15,7 @@
             <th>Message</th>
             <th>Voir le message</th>
             <th>Supprimer</th>
+            <th>Lu</th>
         </tr>
     </thead>
     <tbody>
@@ -26,7 +27,7 @@ while($data = $contact->fetch()){ ?>
 			<th class="tdata"><?= htmlspecialchars(substr($data['content'],0,50)) ?>...</th>
 			<th class="tdata"><a class="tdata" href="/critique/film/contact/<?= $data['id']?>">Voir plus</a></th>
 			<th class="tdata"><a class="tdata" href="/critique/film/contact/delete/<?= $data['id'] ?>">Suprimer</a></th>
-			<p class="read"><?= $data['read_message'] ?></p>
+			<th class="read"><?= $data['read_message'] ?></th>
 		</tr>
 <?php } ?>
 	</tbody>

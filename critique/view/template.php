@@ -62,7 +62,7 @@
 
             </header>  
             <script src="js/jquery.js"></script>
-            <script src="js/menu.js"></script>
+
             <section>      
                 <?= $content ?>
             </section> 
@@ -85,5 +85,6 @@
                 </div>
             </footer>
         </div>
+        <script src="js/menu.js"></script>
     </body>
 </html>

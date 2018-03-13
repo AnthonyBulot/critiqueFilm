@@ -10,6 +10,7 @@
 	</div>
 </div>
 
+<script src="js/jquery.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFCC4YBcIgz9vRR9iTyd6D7-yKAnbV2VE"></script>
 <script src="js/map.js"></script>
 <script src="js/apiCinema.js"></script>

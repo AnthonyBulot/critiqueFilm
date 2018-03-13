@@ -1,4 +1,4 @@
-RewriteEngine On         
+RewriteEngine On
 RewriteRule  film/([a-zA-Z0-9\-\/_\.]+)css/([a-zA-Z0-9\-\/_\.]+)             css/$2
 RewriteRule  film/css/([a-zA-Z0-9\-\/_\.]+)                                  css/$1
 RewriteRule  film/([a-zA-Z0-9\-\/_\.]+)js/([a-zA-Z0-9\-\/_\.]+)              js/$2

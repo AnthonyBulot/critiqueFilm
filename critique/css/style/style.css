@@ -118,10 +118,6 @@ header{
   background: none;
 }
 
-.read{
-	display: none;
-}
-
 #aideCourriel, #aide, #aideEmail, #MdpIdentique, #newMdpIdentique, #aide2, #aideEmailPast, #aideEmailNew{
 	color: red;
 	font-size: 1.2em;
