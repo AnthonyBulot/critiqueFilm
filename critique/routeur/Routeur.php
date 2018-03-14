@@ -28,7 +28,7 @@ class Routeur{
 
 	private function getRouteur(){
 		$this->_routeur = [
-			"/critique/" => "ControlerFront@home",
+			"/" => "ControlerFront@home",
 			"/critique/film/accueil" => "ControlerFront@home",
 			"/critique/film/dernier-film" => "ControlerPost@lastExit",
 			"/critique/film/dernier-film/([0-9]+)" => "ControlerPost@lastExit",			

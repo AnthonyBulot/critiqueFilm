@@ -5,7 +5,7 @@ try {
     require('error/NewException.php');
     require('autoloader/Autoloader.php');
     \Critique\Autoloader::register();
-
+    
     //Faille CSRF
    	$object = new \Critique\token\GetToken();
    	$token = $object->getToken();
@@ -13,6 +13,7 @@ try {
     //Routeur
     $routeur = new \Critique\routeur\Routeur();
     $routeur->initRouteur($token);
+    
 } 
 catch(NewException $e) {
     ob_start();

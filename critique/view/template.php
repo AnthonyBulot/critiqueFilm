@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
         <link href="css/style/style.css" rel="stylesheet" />
         <link rel="icon" type="image/png" href="css/favicon.png" />
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
         
     <body>

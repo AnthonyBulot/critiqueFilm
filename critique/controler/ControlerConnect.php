@@ -24,6 +24,21 @@ class ControlerConnect extends Controler
 		if(empty($_POST['user']) && empty($_POST['password'])){
 			throw new \NewException('Tous les champs ne sont pas remplis !', 400);			
 		}
+		// Ma clé privée
+		$secret = "6Lezm0wUAAAAAOIa5-mx_QcLsD8tuRrZfV74Y9nx";
+		// Paramètre renvoyé par le recaptcha
+		$response = $_POST['g-recaptcha-response'];
+		// On récupère l'IP de l'utilisateur
+		$remoteip = $_SERVER['REMOTE_ADDR'];
+	
+		$api_url = 'https://www.google.com/recaptcha/api/siteverify?secret=' 
+		    . $secret . '&response=' . $response . '&remoteip=' . $remoteip ;
+	
+		$decode = json_decode(file_get_contents($api_url), true);
+		
+		if ($decode['success'] != true) {
+			throw new \NewException('Vous êtes un robot ?');
+		}
 
 		$dbPassword = $this->_objectAdministration->connect($_POST['user']);
 		if (password_verify($_POST['password'], $dbPassword['password'])) {
