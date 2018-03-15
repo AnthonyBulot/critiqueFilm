@@ -4,7 +4,7 @@
     <div class="col-lg-4"><img class="imagePost img-thumbnail" src="css/poster/<?= $post['url_image'] ?>" alt="Affiche de <?= $post['title'] ?>"/></div>
     <div class="col-lg-8">
 	    <h2><?= htmlspecialchars($post['title']) ?></h2>
-        <p>Sorti le : <?= $post['date_fr'] ?></p>
+        <p>Sortie le : <?= $post['date_fr'] ?></p>
         <div class="row">
             <p class="col-lg-4"> Note : <?= $post['note'] ?>/5</p>
             <p class="col-lg-8">Avec : <?= htmlspecialchars($post['actor']) ?></p>
@@ -19,7 +19,7 @@
     </div> 
 </div>
 
-<div class="row"><h2 class="col-lg-12 titre">Commentaire : </h2></div>
+<div class="row"><h2 class="col-lg-12 titre">Commentaires : </h2></div>
 
 
 <?php
@@ -35,7 +35,7 @@ while ($comment = $comments->fetch())
     <div class="row"><p class="col-lg-12"class="col-lg-12">Note : <?= $comment['note'] ?>/5</p></div>
     <div class="row"><p class="col-lg-12"><?= nl2br(htmlspecialchars($comment['content'])) ?></p></div>
     <div class="row">
-    <p class="col-lg-1"><a href="/critique/film/report/commentaire/<?= $comment['id'] ?>/<?= $post['id'] ?>">Signaler</a></p>
+    <p class="col-lg-1"><a href="/critique/film/report/film-<?= $post['id'] ?>/commentaire-<?= $comment['id'] ?>">Signaler</a></p>
     <?php if (isset($_SESSION['name']) && $comment['author'] == $_SESSION['name']){ ?>
     <p class="col-lg-1"><a href="/critique/film/modification/commentaire-<?= $comment['id'] ?>">Modifier</a></p>
     <?php }
@@ -43,7 +43,7 @@ while ($comment = $comments->fetch())
     </div>
 </div>
 <?php } ?>
-<div class="row"><h3 class="col-lg-12">Ajouté un commentaire</h3></div>
+<div class="row"><h3 class="col-lg-12">Ajouter un commentaire</h3></div>
 <?php
 if (isset($_SESSION['name'])){
     if(!isset($author) || (isset($author) && !array_key_exists($_SESSION['name'], $author))){ ?>   
@@ -69,7 +69,7 @@ if (isset($_SESSION['name'])){
             <p class="col-lg-12 center comInfo">Vous avez déjà commenté</p>
     <?php }
 } else { ?>
-    <p class="col-lg-12 center comInfo">Vous devez être connecté pour mettre des commentaire !</p>
+    <p class="col-lg-12 center comInfo">Vous devez être connecté pour mettre des commentaires !</p>
 <?php
 } ?>
 <div class="row">

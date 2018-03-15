@@ -4,7 +4,7 @@
 
 <div class="form-check">
 	<input type="checkbox" name="noRead" class="form-check-input" id="checkbox" />
-	<label for="noRead" class="form-check-label">Message non lus seulement</label>
+	<label for="noRead" class="form-check-label">Messages non lus seulement</label>
 </div>
 
 <table id="table_id" class="table">

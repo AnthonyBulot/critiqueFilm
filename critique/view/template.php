@@ -21,15 +21,15 @@
                             <p class="col-lg-2 col-md-2 col-sm-4 lienMenu"><a href="/critique/film/dernier-film">Films</a></p>
                             <p class="col-lg-2 col-md-2 col-sm-4 lienMenu"><a href="/critique/film/contact">Contact</a></p>                
                             <ul class="navigation col-lg-3 col-md-2 col-sm-4 " id="lienCategory">
-                                <li class="toggleSubMenu lienMenu"><span>Catégorie</span>
+                                <li class="toggleSubMenu lienMenu"><span>Catégories</span>
                                     <ul class="subMenu">
                                         <li><a href="/critique/film/category/Action">Action</a></li>
                                         <li><a href="/critique/film/category/Aventure">Aventure</a></li>
-                                        <li><a href="/critique/film/category/Comedie">Comedie</a></li>
+                                        <li><a href="/critique/film/category/Comedie">Comédie</a></li>
                                         <li><a href="/critique/film/category/Drame">Drame</a></li>
                                         <li><a href="/critique/film/category/Famille">Famille</a></li>
                                         <li><a href="/critique/film/category/Fantastique">Fantastique</a></li>
-                                        <li><a href="/critique/film/category/Hero">Hero</a></li>
+                                        <li><a href="/critique/film/category/Hero">Héroïque</a></li>
                                         <li><a href="/critique/film/category/Histoire">Histoire</a></li>
                                         <li><a href="/critique/film/category/Horreur">Horreur</a></li>
                                         <li><a href="/critique/film/category/Policier">Policier</a></li>

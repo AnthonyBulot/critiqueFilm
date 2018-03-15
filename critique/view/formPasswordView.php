@@ -17,7 +17,7 @@
         	<input type="password" name="passwordNew2" class="form-control" id="newPassword2" />
         	<p id="newMdpIdentique" class="noSubmit"></p>
     	</div>
-    	<input class="btn btn-default" type="submit" name="submit" value="Connexion"/>
+    	<input class="btn btn-default" type="submit" name="submit" value="Modifiez"/>
 	</form>
 </div>
 <script src="js/jquery.js"></script>

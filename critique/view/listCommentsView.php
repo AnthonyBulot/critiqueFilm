@@ -19,7 +19,7 @@ while ($comment = $comments->fetch())
     	<div class="row"><p class="col-lg-12 author"><strong class="author"><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_datefr'] ?></p></div>
         <div class="row"><p class="col-lg-12">Note: <?= $comment['note'] ?>/5</p></div>
     	<div class="row"><p class="col-lg-12"><?= nl2br(htmlspecialchars($comment['content'])) ?></p></div>
-    	<div class="row"><p class="col-lg-12">A été signaler <span class="report"><?= $comment['report'] ?></span> fois</p></div>
+    	<div class="row"><p class="col-lg-12">A été signalé <span class="report"><?= $comment['report'] ?></span> fois</p></div>
         <div class="row">
     	   <p class="col-lg-2"><a href="/critique/film/suprimer/commentaire/<?= $comment['id'] ?>">Supprimer le commentaire</a></p>
     	   <p class="col-lg-2"><a href="/critique/film/suprimer/signalement/<?= $comment['id'] ?>">Enlever les signalements</a></p>

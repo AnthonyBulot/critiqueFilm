@@ -4,8 +4,6 @@ RewriteRule  film/css/([a-zA-Z0-9\-\/_\.]+)                                  css
 RewriteRule  film/([a-zA-Z0-9\-\/_\.]+)js/([a-zA-Z0-9\-\/_\.]+)              js/$2
 RewriteRule  film/js/([a-zA-Z0-9\-\/_\.]+)                                   js/$1
 RewriteRule  film/([a-zA-Z0-9\-_\/]+)/([0-9]+)/([0-9]+)$                     index.php?id=$2&postId=$3
-RewriteRule  film/([a-zA-Z0-9\-_\/]+)/delete-([0-9]+)$                       index.php?delete=$2
-RewriteRule  film/([0-9]+)/report                                            index.php?report=true&id=$1
 RewriteRule  film/([0-9]+)/page-([0-9]+)                                     index.php?id=$1&idComment=$2
 RewriteRule  film/category/([a-zA-Z0-9\-_]+)$                                index.php?category=$1
 RewriteRule  film/category/([a-zA-Z0-9\-_]+)/([0-9]+)$                       index.php?category=$1&id=$2
@@ -14,4 +12,13 @@ RewriteRule  film/([0-9]+)$                                                  ind
 RewriteRule  film/formulaire-connexion/erreur								 index.php?exist=true
 RewriteRule  film/([a-zA-Z0-9\-_\/]+)([0-9]+)$                               index.php?id=$2
 RewriteRule  film/([a-zA-Z0-9\-_\/]+)$                                       index.php
+RewriteRule  film/([0-9]+)$                                                  index.php?id=$1
+RewriteRule  film/modification/commentaire/([0-9]+)/([0-9]+)$                index.php?postId=$2&id=$1
+RewriteRule  film/modification/commentaire-([0-9]+)$                         index.php?id=$1
+RewriteRule  film/suprimer/signalement/([0-9]+)$                             index.php?id=$1
+RewriteRule  film/suprimer/commentaire/([0-9]+)$                             index.php?id=$1
+RewriteRule  film/([a-zA-Z0-9\-_\/]+)/delete-([0-9]+)$                       index.php?delete=$2
+RewriteRule  film/contact/([0-9]+)$                                          index.php?id=$1
+RewriteRule  film/([0-9]+)/report                                            index.php?report=true&id=$1
+RewriteRule  film/([a-zA-Z0-9\-]+)/film-([0-9]+)/commentaire-([0-9]+)$       index.php?postId=$2&id=$3
 RewriteRule  film$                                                           index.php [L]

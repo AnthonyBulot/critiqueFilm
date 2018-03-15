@@ -35,7 +35,7 @@
         		<p id="aide" class="noSubmit"></p>
     		</div>
     		<div class="form-group">
-        		<label for="password">Répété le Mot De Passe</label>
+        		<label for="password">Répéter le Mot De Passe</label>
         		<input type="password" name="password2" class="form-control" id="mdp2" />
         		<p id="MdpIdentique" class="noSubmit"></p>
     		</div>
